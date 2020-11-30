@@ -6,3 +6,8 @@
 main {
   padding: 20px;
 }
+
+#suaIdade {
+  margin-top: 50px;
+  font-weight: bold;
+}
