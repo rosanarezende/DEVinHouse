@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #cf9bc5;
+  background-image: linear-gradient(to bottom right, #f2c2c5, #ae80c7);
+}
+
+h2 {
+  color: #2F2E41
+}
+
+a {
+  color: #ae80c7;
+}
+
+a:hover{
+  color: #CF9BC5;
+}
+
+#wrapper {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+#wrapper img {
+  width: 20vw;
+}
+
+#img1 {
+  align-self: baseline;
+  margin-top: 15vh;
+  margin-right: -20px;
+}
+
+#img2 {
+  align-self: flex-end;
+  margin-bottom: 15vh;
+  margin-left: -20px;
+}
+
+#img3 {
+  display: none;
+}
+
+.card {
+  width: 25vw;
+  height: 60vh;
+  align-self: center;
+  opacity: 0.9;
+  z-index: 2;
+}
+
+.card-body {
+  max-height: 50vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+#btn-modal{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: -45px;
+  background-color: #FFBA74;
+  border-color: #FFBA74;
+}
+
+.nova-tarefa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  /* padding: 8px 0 8px 20px; */
+  margin-bottom: 5px;
+}
+
+.close {
+  color: red;
+  margin-left: 5px;
+  display: flex;
+  align-self: center;
+}
+
+input[type=checkbox] {
+  min-width: 16px;
+  min-height: 16px;
+  margin-right: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-self: center;
+  opacity: 0.3;
+}
+
+input[type=checkbox]:checked:after {
+  background-color: #ae80c7;
+  content: " ";
+  background-image: url('./assets/check.svg');
+  min-width: 19px;
+  min-height: 19px;
+  border-radius: 2px;
+}
+
+.finalizada label {
+  text-decoration: line-through;
+  opacity: 0.3;
+}
+
+@media screen and (max-width: 1200px) {
+  #wrapper img {
+    width: 25vw;
+  }
+  .card {
+    width: 40vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #wrapper img {
+    width: 50vw;
+  }
+
+  #img1, #img2 {
+    display: none;
+  }
+  
+  #img3 {
+    display: block;
+    position: fixed;
+    top: 5vh
+  }
+
+  .card {
+    width: 80vw;
+    height: 70vh;
+    margin-top: 15vh;
+  }
+}

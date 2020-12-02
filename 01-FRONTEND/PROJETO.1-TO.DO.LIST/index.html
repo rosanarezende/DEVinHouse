@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="nav.js" defer></script>
+    <script src="tasks.js" defer></script>
+    <title>Minhas tarefas</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <img
+        id="img1"
+        src="./assets/undraw_Add_notes_re_ln36.svg"
+        alt="add_notes"
+      />
+
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title text-center">MINHAS TAREFAS</h2>
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" href="#todas" id="nav-link-todas">Todas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#novas" id="nav-link-novas">Novas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#finalizadas" id="nav-link-finalizadas">Finalizadas</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card-body" id="resultado">
+        </div>
+
+        <div class="card-footer text-center">
+          <!-- Botão que chama o modal -->
+          <button
+            id="btn-modal"
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#exampleModal"
+          >
+            <svg width="30px" height="30px" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+            </svg>          
+          </button>
+
+        </div>
+      </div>
+
+      <img
+        id="img2"
+        src="./assets/undraw_completed_tasks_vs6q.svg"
+        alt="completed_tasks"
+      />
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <form class="modal-content">
+            
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Nova Tarefa</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-group">
+                  <label for="input-tarefa" class="col-form-label">
+                    Escreva o texto no campo abaixo:
+                  </label>
+                  <input type="text" class="form-control" id="input-tarefa">
+
+                  <small id="com-texto" class="form-text" style="display: none;">
+                    Insira um texto para prosseguir.
+                  </small>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+              <button id="btn-add" type="button" class="btn btn-primary" onclick="novaTarefa()">
+                Adicionar
+              </button>
+            </div>
+
+
+          </form>
+        </div>
+      </div>
+      <img
+          id="img3"
+          src="./assets/undraw_To_do_list_re_9nt7.svg"
+          alt="to_do_list"
+      />
+    </div>
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
