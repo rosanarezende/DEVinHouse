@@ -8,10 +8,6 @@ body {
   background-image: linear-gradient(to bottom right, #f2c2c5, #ae80c7);
 }
 
-h2 {
-  color: #2F2E41
-}
-
 a {
   color: #ae80c7;
 }
@@ -20,26 +16,45 @@ a:hover{
   color: #CF9BC5;
 }
 
-#wrapper {
+header {
+  height: 7vh;
+}
+
+#navbar-web {
+  height: 7vh;
+  box-shadow: -2px 2px 10px rgba(97, 46, 65, 0.2);
+}
+
+#title-web {
+  color: #2F2E41;
+  font-size: 1.8em;
+}
+
+main {
   display: flex;
-  min-height: 100vh;
+  min-height: 93vh;
   justify-content: center;
 }
 
-#wrapper img {
+#title-mobile {
+  color: #2F2E41;
+  display: none;
+}
+
+main img {
   width: 20vw;
 }
 
 #img1 {
   align-self: baseline;
   margin-top: 15vh;
-  margin-right: -20px;
+  margin-right: 40px;
 }
 
 #img2 {
   align-self: flex-end;
   margin-bottom: 15vh;
-  margin-left: -20px;
+  margin-left: 40px;
 }
 
 #img3 {
@@ -47,7 +62,7 @@ a:hover{
 }
 
 .card {
-  width: 25vw;
+  width: 45vw;
   height: 60vh;
   align-self: center;
   opacity: 0.9;
@@ -55,16 +70,16 @@ a:hover{
 }
 
 .card-body {
-  max-height: 50vh;
+  max-height: 55vh;
   overflow-y: auto;
   position: relative;
 }
 
 #btn-modal{
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  margin-bottom: -45px;
+  margin-bottom: -50px;
   background-color: #FFBA74;
   border-color: #FFBA74;
 }
@@ -110,16 +125,43 @@ input[type=checkbox]:checked:after {
 }
 
 @media screen and (max-width: 1200px) {
-  #wrapper img {
+  header {
+    display: none;
+  }
+
+  main {
+    min-height: 100vh;
+  }
+
+  #title-mobile {
+    display: flex;
+  }
+
+  main img {
     width: 25vw;
   }
+
+  #img1 {
+    margin-right: -20px;
+  }
+  
+  #img2 {
+    margin-left: -20px;
+  }
+
   .card {
     width: 40vw;
   }
 }
 
+@media screen and (max-width: 900px) {
+  .card {
+    width: 50vw;
+  }
+}
+
 @media screen and (max-width: 600px) {
-  #wrapper img {
+  main img {
     width: 50vw;
   }
 
@@ -137,5 +179,15 @@ input[type=checkbox]:checked:after {
     width: 80vw;
     height: 70vh;
     margin-top: 15vh;
+  }
+
+  .card-body {
+    max-height: 55vh;
+  }
+
+  #btn-modal{
+    width: 65px;
+    height: 65px;
+    margin-bottom: -45px;
   }
 }

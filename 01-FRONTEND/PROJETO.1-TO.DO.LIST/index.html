@@ -2,6 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta
+      name="Minhas Tarefas"
+      content="Aplicação web de lista de afazeres (“to-do list”)"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
@@ -15,7 +20,13 @@
     <title>Minhas tarefas</title>
   </head>
   <body>
-    <div id="wrapper">
+    <header>
+      <nav class="navbar fixed-top navbar-light bg-light" id="navbar-web">
+        <span class="navbar-brand mb-0 h1" id="title-web">Minhas Tarefas</span>
+      </nav>
+    </header>
+
+    <main>
       <img
         id="img1"
         src="./assets/undraw_Add_notes_re_ln36.svg"
@@ -24,7 +35,7 @@
 
       <div class="card">
         <div class="card-header">
-          <h2 class="card-title text-center">MINHAS TAREFAS</h2>
+          <h2 class="card-title text-center" id="title-mobile">MINHAS TAREFAS</h2>
           <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
               <a class="nav-link active" href="#todas" id="nav-link-todas"
@@ -56,8 +67,6 @@
             title="Adicionar tarefa!"
           >
             <svg
-              width="30px"
-              height="30px"
               viewBox="0 0 16 16"
               class="bi bi-plus"
               fill="currentColor"
@@ -176,12 +185,13 @@
         </div>
       </div>
 
+      <!-- Imagem da versão mobile -->
       <img
         id="img3"
         src="./assets/undraw_To_do_list_re_9nt7.svg"
         alt="to_do_list"
       />
-    </div>
+    </main>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
