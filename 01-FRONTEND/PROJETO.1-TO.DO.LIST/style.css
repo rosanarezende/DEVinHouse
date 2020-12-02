@@ -119,7 +119,7 @@ input[type=checkbox]:checked:after {
   border-radius: 2px;
 }
 
-.finalizada label {
+input[type=checkbox]:checked + label {
   text-decoration: line-through;
   opacity: 0.3;
 }
@@ -161,6 +161,10 @@ input[type=checkbox]:checked:after {
 }
 
 @media screen and (max-width: 600px) {
+  #title-mobile {
+    font-size: 1.8rem;
+  }
+
   main img {
     width: 50vw;
   }
