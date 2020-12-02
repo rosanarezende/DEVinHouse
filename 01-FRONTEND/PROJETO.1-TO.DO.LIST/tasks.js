@@ -8,16 +8,33 @@ function guardarResultadoNoLocalStorage() {
   return localStorage.setItem("resultado", resultado.innerHTML);
 }
 
+// Adicionar mais de 1 atributo de uma só vez
+function setAttributes(elem) {
+  for (var i = 1; i < arguments.length; i += 2) {
+    elem.setAttribute(arguments[i], arguments[i + 1]);
+  }
+}
+
+let tempToDelete;
+
 function deletar() {
-  const botoesDeletar = document.querySelectorAll(".close");
+  const botoesDeletar = document.querySelectorAll("#deletar-tarefa");
   for (i = 0; i < botoesDeletar.length; i++) {
+    botoesDeletar[i].removeAttribute("data-dismiss");
     botoesDeletar[i].onclick = function () {
-      const item = this.parentElement;
-      resultado.removeChild(item);
-      guardarResultadoNoLocalStorage();
+      setAttributes(this, "data-toggle", "modal", "data-target", "#modal2");
+      tempToDelete = this.parentElement;
     };
   }
 }
+
+function confirmaDeletar() {
+  const botaoDeletar = document.querySelector("#btn-delete");
+  botaoDeletar.setAttribute("data-dismiss", "modal");
+  resultado.removeChild(tempToDelete);
+  guardarResultadoNoLocalStorage();
+}
+
 
 function finalizar() {
   const checks = document.querySelectorAll("input[type=checkbox]");
@@ -65,7 +82,10 @@ function novaTarefa() {
   const button = document.createElement("button");
   const iconeFechar = document.createTextNode("\u00D7");
   button.className = "close";
+  button.id = "deletar-tarefa";
   button.appendChild(iconeFechar);
+  setAttributes(button, "data-tt", "tooltip", "title", "Deletar tarefa!");
+  console.log(button);
 
   // cria div maior, que receberá a div anterior e botão de deletar
   const itemNovo = document.createElement("div");

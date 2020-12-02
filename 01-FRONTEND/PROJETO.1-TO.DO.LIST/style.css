@@ -74,11 +74,10 @@ a:hover{
   justify-content: space-between;
   align-items: center;
   padding: 8px 0;
-  /* padding: 8px 0 8px 20px; */
   margin-bottom: 5px;
 }
 
-.close {
+#deletar-tarefa {
   color: red;
   margin-left: 5px;
   display: flex;

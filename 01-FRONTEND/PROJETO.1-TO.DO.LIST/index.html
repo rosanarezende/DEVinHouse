@@ -27,34 +27,48 @@
           <h2 class="card-title text-center">MINHAS TAREFAS</h2>
           <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-              <a class="nav-link active" href="#todas" id="nav-link-todas">Todas</a>
+              <a class="nav-link active" href="#todas" id="nav-link-todas"
+                >Todas</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#novas" id="nav-link-novas">Novas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#finalizadas" id="nav-link-finalizadas">Finalizadas</a>
+              <a class="nav-link" href="#finalizadas" id="nav-link-finalizadas"
+                >Finalizadas</a
+              >
             </li>
           </ul>
         </div>
 
-        <div class="card-body" id="resultado">
-        </div>
+        <div class="card-body" id="resultado"></div>
 
         <div class="card-footer text-center">
-          <!-- Botão que chama o modal -->
+          <!-- Botão que chama o modal 1 -->
           <button
             id="btn-modal"
             type="button"
             class="btn btn-primary"
             data-toggle="modal"
             data-target="#exampleModal"
+            data-tt="tooltip" 
+            title="Adicionar tarefa!"
           >
-            <svg width="30px" height="30px" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-            </svg>          
+            <svg
+              width="30px"
+              height="30px"
+              viewBox="0 0 16 16"
+              class="bi bi-plus"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+              />
+            </svg>
           </button>
-
         </div>
       </div>
 
@@ -64,7 +78,7 @@
         alt="completed_tasks"
       />
 
-      <!-- Modal -->
+      <!-- Modal 1-->
       <div
         class="modal fade"
         id="exampleModal"
@@ -75,7 +89,6 @@
       >
         <div class="modal-dialog" role="document">
           <form class="modal-content">
-            
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Nova Tarefa</h5>
               <button
@@ -89,35 +102,86 @@
             </div>
 
             <div class="modal-body">
-                <div class="form-group">
-                  <label for="input-tarefa" class="col-form-label">
-                    Escreva o texto no campo abaixo:
-                  </label>
-                  <input type="text" class="form-control" id="input-tarefa">
+              <div class="form-group">
+                <label for="input-tarefa" class="col-form-label">
+                  Escreva o texto no campo abaixo:
+                </label>
+                <input type="text" class="form-control" id="input-tarefa" placeholder="Nova tarefa..." />
 
-                  <small id="com-texto" class="form-text" style="display: none;">
-                    Insira um texto para prosseguir.
-                  </small>
-                </div>
+                <small id="com-texto" class="form-text" style="display: none">
+                  Insira um texto para prosseguir.
+                </small>
+              </div>
             </div>
 
             <div class="modal-footer">
-              <button id="btn-add" type="button" class="btn btn-primary" onclick="novaTarefa()">
+              <button
+                id="btn-add"
+                type="button"
+                class="btn btn-primary"
+                onclick="novaTarefa()"
+              >
                 Adicionar
               </button>
             </div>
-
-
           </form>
         </div>
       </div>
+
+      <!-- Modal 2-->
+      <div
+        class="modal fade"
+        id="modal2"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="modal2"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <form class="modal-content">
+            <div class="modal-header">
+              <!-- <h5 class="modal-title" id="exampleModalLabel">Nova Tarefa</h5> -->
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <p>Tem certeza que deseja deletar essa tarefa?</p>
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Não
+              </button>
+              <button
+                id="btn-delete"
+                type="button"
+                class="btn btn-primary"
+                onclick="confirmaDeletar()"
+              >
+                Sim
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
       <img
-          id="img3"
-          src="./assets/undraw_To_do_list_re_9nt7.svg"
-          alt="to_do_list"
+        id="img3"
+        src="./assets/undraw_To_do_list_re_9nt7.svg"
+        alt="to_do_list"
       />
     </div>
-
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
