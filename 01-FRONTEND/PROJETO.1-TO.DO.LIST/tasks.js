@@ -1,20 +1,52 @@
 let result = document.querySelector("#result");
 let tasksArray = [];
 
-function addTasksAtLocalStorage() {
-  return localStorage.setItem("tasks", JSON.stringify(tasksArray)); 
-}
-
-function getTasksAtLocalStorage(){
-  const tasksInLocalStorage = JSON.parse(localStorage.getItem("tasks"));
-  if(tasksInLocalStorage) {
-    tasksArray = tasksInLocalStorage
-    for(let task of tasksArray) {
-      createTaskAtHTML(task)
-    }
+const tasksInLocalStorage = JSON.parse(localStorage.getItem("tasks"));
+if (tasksInLocalStorage) {
+  tasksArray = tasksInLocalStorage;
+  for (let task of tasksArray) {
+    createTaskAtHTML(task);
   }
 }
-getTasksAtLocalStorage()
+
+const checks = document.querySelectorAll("input[type=checkbox]");
+for (let check of checks) {
+  check.addEventListener("click", (event) => {
+    for (let task of tasksArray) {
+      if (task.id === Number(event.target.id)) {
+        task.checked = !task.checked;
+      }
+      if (task.checked) {
+        event.target.setAttribute("checked", "checked");
+      } else {
+        event.target.removeAttribute("checked");
+      }
+    }
+    addTasksAtLocalStorage();
+  });
+}
+
+let tempIdToDelete;
+let tempDivToDelete;
+const iconsDelete = document.querySelectorAll("#deletar-tarefa");
+for (let iconDelete of iconsDelete) {
+  iconDelete.removeAttribute("data-dismiss");
+  iconDelete.addEventListener("click", (event) => {
+    setAttributes(
+      event.target,
+      "data-toggle",
+      "modal",
+      "data-target",
+      "#modal2"
+    );
+    tempIdToDelete = event.target.parentElement.children[0].children[0].id;
+    tempDivToDelete = event.target.parentElement;
+  });
+}
+
+function addTasksAtLocalStorage() {
+  return localStorage.setItem("tasks", JSON.stringify(tasksArray));
+}
 
 function setAttributes(elem) {
   for (let i = 1; i < arguments.length; i += 2) {
@@ -22,11 +54,11 @@ function setAttributes(elem) {
   }
 }
 
-function createTaskAtHTML(task){
+function createTaskAtHTML(task) {
   // criar checkbox
   const checkbox = document.createElement("input");
-  if(task.checked) {
-    setAttributes(checkbox, "type", "checkbox", "checked", "checked")
+  if (task.checked) {
+    setAttributes(checkbox, "type", "checkbox", "checked", "checked");
   } else {
     checkbox.setAttribute("type", "checkbox");
   }
@@ -60,72 +92,38 @@ function createTaskAtHTML(task){
   newTaskElement.appendChild(div);
   newTaskElement.appendChild(button);
 
-  result.appendChild(newTaskElement)
+  result.appendChild(newTaskElement);
 }
 
-function clickToCreateTask(){
-    const btnAdd = document.querySelector("#btn-add");
-    btnAdd.removeAttribute("data-dismiss");
-    
-    const valueInputTask = document.querySelector("#input-tarefa").value;
-    const textoAlternativo = document.querySelector("#com-texto");
-    if (valueInputTask === "") {
-      textoAlternativo.setAttribute("style", "display: block; color: red");
-    }
-    else {
-      textoAlternativo.setAttribute("style", "display: none;");
-      btnAdd.setAttribute("data-dismiss", "modal");
-      task = {
-        id: new Date().getTime(), // ou Math.random();
-        checked: false,
-        text: valueInputTask
-      }
-      tasksArray.push(task)
-      addTasksAtLocalStorage()
-      createTaskAtHTML(task)
-      document.querySelector("#input-tarefa").value = "";
-    }
-}
+function clickToCreateTask() {
+  const btnAdd = document.querySelector("#btn-add");
+  const valueInputTask = document.querySelector("#input-tarefa").value;
+  const alternativeText = document.querySelector("#com-texto");
 
-function clickToFinishTask() {
-  const checks = document.querySelectorAll("input[type=checkbox]");
-  for (i = 0; i < checks.length; i++) {
-    checks[i].addEventListener('click', (event) => {
-      for(let task of tasksArray) {
-        if(task.id === Number(event.target.id)) {
-          task.checked = !task.checked
-        }
-        if(task.checked) {
-          event.target.setAttribute("checked", "checked");
-        } else {
-          event.target.removeAttribute("checked");
-        }
-      }
-      addTasksAtLocalStorage();
-    });
+  btnAdd.removeAttribute("data-dismiss");
+
+  if (valueInputTask === "") {
+    alternativeText.setAttribute("style", "display: block; color: red");
+  } else {
+    let task = {
+      id: new Date().getTime(),
+      checked: false,
+      text: valueInputTask,
+    };
+    tasksArray.push(task);
+    createTaskAtHTML(task);
+    addTasksAtLocalStorage();
+
+    alternativeText.setAttribute("style", "display: none;");
+    btnAdd.setAttribute("data-dismiss", "modal");
+    document.querySelector("#input-tarefa").value = "";
   }
 }
-clickToFinishTask();
-
-let tempIdToDelete;
-let tempDivToDelete;
-function clickToDelete() {
-  const botoesDeletar = document.querySelectorAll("#deletar-tarefa");
-  for (i = 0; i < botoesDeletar.length; i++) {
-    botoesDeletar[i].removeAttribute("data-dismiss");
-    botoesDeletar[i].addEventListener('click', (event) => {
-      setAttributes(event.target, "data-toggle", "modal", "data-target", "#modal2")
-      tempIdToDelete = event.target.parentElement.children[0].children[0].id
-      tempDivToDelete = event.target.parentElement
-    })
-  }
-}
-clickToDelete();
 
 function confirmDelete() {
   const btnDelete = document.querySelector("#btn-delete");
   btnDelete.setAttribute("data-dismiss", "modal");
-  tasksArray = tasksArray.filter(task => task.id !== Number(tempIdToDelete))
+  tasksArray = tasksArray.filter((task) => task.id !== Number(tempIdToDelete));
   result.removeChild(tempDivToDelete);
   addTasksAtLocalStorage();
 }
