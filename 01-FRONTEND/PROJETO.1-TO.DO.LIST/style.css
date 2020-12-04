@@ -84,7 +84,11 @@ main img {
   border-color: #FFBA74;
 }
 
-.nova-tarefa {
+#btn-modal:hover{
+  box-shadow: 0 0 15px rgb(0, 0, 0, 0.1);
+}
+
+.new-task {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -92,14 +96,28 @@ main img {
   margin-bottom: 5px;
 }
 
-#deletar-tarefa {
+.close2 {
   color: red;
   margin-left: 5px;
   display: flex;
   align-self: center;
+  font-size: 1.6rem;
 }
 
-input[type=checkbox] {
+.edit, .close2 {
+  border: none;
+  background: none;
+  outline: none;
+  border-radius: 6px;
+  transition-duration: 0.4s;
+}
+
+.edit:hover, .close2:hover {
+  box-shadow: -2px 2px 10px rgb(242, 194, 197, 0.3);
+}
+
+
+.check {
   min-width: 16px;
   min-height: 16px;
   margin-right: 12px;
@@ -110,7 +128,7 @@ input[type=checkbox] {
   opacity: 0.3;
 }
 
-input[type=checkbox]:checked:after {
+.check:checked:after {
   background-color: #ae80c7;
   content: " ";
   background-image: url('./assets/check.svg');
@@ -119,7 +137,7 @@ input[type=checkbox]:checked:after {
   border-radius: 2px;
 }
 
-input[type=checkbox]:checked + label {
+.check:checked + label {
   text-decoration: line-through;
   opacity: 0.3;
 }
