@@ -60,7 +60,7 @@ function createTaskAtHTML(task) {
   button.className = "close2";
   button.id = task?.id;
   setAttributes(button, "data-tt", "tooltip", "title", "Deletar tarefa!");
-  
+
   button.addEventListener("click", () => {
     setAttributes(button, "data-toggle", "modal", "data-target", "#modal2");
     taskClicked = button.parentElement.parentElement;
@@ -73,14 +73,14 @@ function createTaskAtHTML(task) {
   button2.className = "edit";
   button2.id = task?.id;
   setAttributes(button2, "data-tt", "tooltip", "title", "Editar tarefa!");
-  
+
   button2.addEventListener("click", () => {
     const newInputTask = document.querySelector("#new-input-text");
     for (let task of tasksArray) {
       if (task.id === Number(button2.id)) {
         newInputTask.value = task.text;
       }
-    }    
+    }
     taskClicked = button2.parentElement.parentElement;
     setAttributes(button2, "data-toggle", "modal", "data-target", "#modal3");
   });

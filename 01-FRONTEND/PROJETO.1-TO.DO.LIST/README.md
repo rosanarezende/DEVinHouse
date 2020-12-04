@@ -2,7 +2,7 @@
 
 ## Prévia
 
-:dash: [Deploy da Aplicação](http://rosana-minha-lista.surge.sh/)
+:dash: [Deploy da Aplicação](http://rosana-minhastarefas.surge.sh/)
 
 <br>
 
