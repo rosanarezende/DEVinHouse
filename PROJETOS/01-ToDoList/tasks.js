@@ -6,7 +6,8 @@ const tasksInLocalStorage = JSON.parse(localStorage.getItem("tasks"));
 if (tasksInLocalStorage) {
   tasksArray = tasksInLocalStorage;
   for (let task of tasksArray) {
-    createTaskAtHTML(task);
+    const newTaskElement = createTaskAtHTML(task);
+    result.appendChild(newTaskElement);
   }
 }
 
@@ -99,8 +100,7 @@ function createTaskAtHTML(task) {
   newTaskElement.className = "new-task";
   newTaskElement.id = task?.id;
 
-  // ========== colocar no HTML ==========
-  result.appendChild(newTaskElement);
+  return newTaskElement;
 }
 
 function checkInput(idInput, idAlternativeText, idButtonConfirm) {
@@ -127,7 +127,8 @@ function clickToCreateTask() {
       text: inputValue,
     };
     tasksArray.push(task);
-    createTaskAtHTML(task);
+    const newTaskElement = createTaskAtHTML(task);
+    result.appendChild(newTaskElement);
     addTasksAtLocalStorage();
   }
 }
@@ -138,11 +139,9 @@ function confirmEdit() {
     for (let task of tasksArray) {
       if (task.id === Number(taskClicked.id)) {
         task.text = inputValue;
+        const newTaskElement = createTaskAtHTML(task);
+        taskClicked.replaceWith(newTaskElement);
       }
-    }
-    result.innerHTML = "";
-    for (let task of tasksArray) {
-      createTaskAtHTML(task);
     }
     addTasksAtLocalStorage();
   }
