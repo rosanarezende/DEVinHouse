@@ -1,0 +1,13 @@
+* {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+main {
+  padding: 20px;
+}
+
+#suaIdade {
+  margin-top: 50px;
+  font-weight: bold;
+}
