@@ -32,7 +32,7 @@ header {
 
 main {
   display: flex;
-  min-height: 93vh;
+  min-height: 83vh;
   justify-content: center;
 }
 
@@ -142,13 +142,31 @@ main img {
   opacity: 0.3;
 }
 
+footer {
+  padding: 1.5rem;
+}
+
+#rosana-logo{
+  width: 4vw;
+  opacity: 0.6;
+}
+
+.social-media {
+  width: 1vw;
+  opacity: 0.5;
+}
+
+#copyright{
+  opacity: 0.6;
+}
+
 @media screen and (max-width: 1200px) {
   header {
     display: none;
   }
 
   main {
-    min-height: 100vh;
+    min-height: 90vh;
   }
 
   #title-mobile {
@@ -170,11 +188,23 @@ main img {
   .card {
     width: 40vw;
   }
+
+  #rosana-logo{
+    width: 8vw;
+  }
+
+  .social-media {
+    width: 2vw;
+  }
 }
 
 @media screen and (max-width: 900px) {
   .card {
     width: 50vw;
+  }
+
+  #copyright{
+    display: none !important;
   }
 }
 
@@ -183,8 +213,13 @@ main img {
     font-size: 1.8rem;
   }
 
+  main {
+    min-height: 90vh;
+  }
+
   main img {
-    width: 50vw;
+    height: 15vh;
+    width: auto;
   }
 
   #img1, #img2 {
@@ -194,13 +229,13 @@ main img {
   #img3 {
     display: block;
     position: fixed;
-    top: 5vh
+    top: 3vh
   }
 
   .card {
     width: 80vw;
-    height: 70vh;
-    margin-top: 15vh;
+    height: 65vh;
+    margin-top: 18vh;
   }
 
   .card-body {
@@ -212,4 +247,18 @@ main img {
     height: 65px;
     margin-bottom: -45px;
   }
+
+  footer {
+    padding: 10px;
+  }
+
+  #rosana-logo{
+    width: 16vw;
+    margin-top: 5px;
+  }
+
+  .social-media {
+    width: 4vw;
+  }
+
 }
