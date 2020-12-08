@@ -27,9 +27,6 @@
 
     ### 15 - Salve a lista de mercado
 
-    Utilizando a mesma página do exercício anterior:
-    https://trello.com/c/SUNLYM0V/20-sp02-fa%C3%A7a-uma-p%C3%A1gina-de-lista-de-mercado 
-
     Adicione um novo botão “Salvar lista”. 
 
     Quando o usuário clicar nesse botão, a lista de itens de mercado deve ser salva no Local Storage do navegador.
@@ -37,17 +34,28 @@
 
     ### 16 - Carregue uma lista salva anteriormente
 
-    Utilizando a mesma página dos 2 exercícios anteriores:
-    https://trello.com/c/SUNLYM0V/20-sp02-fa%C3%A7a-uma-p%C3%A1gina-de-lista-de-mercado 
-    e 
-    https://trello.com/c/3y0M3hBY/21-sp02-salve-a-lista-de-mercado 
-
     Crie um novo botão “Carregar lista”, que ao ser clicado deve buscar no Local Storage se existe uma lista de itens de mercado salva, e em caso positivo deve mostrar os itens no elemento da página.
 
     Caso não haja nenhuma lista previamente salva, deve informar o usuário “Não há itens salvos”.
 
    -->
-  <main>
+  <main class="container">
+    <h1>Lista de Mercado</h1>
+
+    <form onsubmit="adicionaItem(event)">
+      <div class="form-group">
+        <label for="inputText">Item a adicionar:</label>
+        <input type="text" class="form-control" id="inputText">
+      </div>
+      <button type="submit" class="btn btn-primary">Adicionar</button>
+      <button type="button" class="btn btn-success" onclick="salvarLista()">Salvar Lista</button>
+      <button type="button" class="btn btn-warning" onclick="carregarLista()">Carregar Lista</button>
+    </form>
+
+    <br>
+    <div class="alert alert-info" role="alert" style="display: none;" id="my-alert"></div>
+    <div id="list">
+    </div>
     
   </main>
 </body>
