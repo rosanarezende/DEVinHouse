@@ -19,8 +19,6 @@ function calculaQuadrado(listaDeNumeros) {
 }
 calculaQuadrado([1, 2, 3, 4]); //?
 
-
-
 // ************************************
 // ************************************
 // ************************************
@@ -143,19 +141,33 @@ apresentaUsuario("Rosana", 33);
 Crie uma função que retornará uma promise, ela receberá dois valores numéricos como parâmetro, a função deve somar os dois valores e somente resolver a promise caso o resultado seja par retornando o valor da soma e rejeitando a promise caso ímpar, retornando uma mensagem explicativa
 */
 
+
 function resultadoDaSomaPar(num1, num2) {
-  new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       if ((num1 + num2) % 2 === 0) {
-        resolve(console.log(num1 + num2));
+        resolve(num1 + num2);
       } else {
-        reject(console.log("O resultado da soma não é par"));
+        reject("O resultado da soma não é par");
       }
     }, 2000);
-  })
+  });
 }
-resultadoDaSomaPar(2, 2);
 
+// Usando .then
+resultadoDaSomaPar(2, 2)
+  .then((resultado) => console.log(resultado))
+  .catch((mensagem) => console.log(mensagem));
+
+// Usando async/await
+async () => {
+  try {
+    const resultado = await resultadoDaSomaPar(2,2)
+    console.log(resultado)
+  } catch (mensagem) {
+    console.log(mensagem)
+  }
+}
 
 /* =====================================================================
 11 - Cálculo de área de um Retângulo
@@ -182,8 +194,6 @@ const imprimeEndereco = (bairro, cidade, estado) => {
   console.log(`${bairro}, ${cidade}/${estado}`);
 };
 imprimeEndereco("Avenida Tal", "Linhares", "ES");
-
-
 
 // ******************************
 // ******************************
@@ -264,7 +274,6 @@ const desmontarEntidade = (obj) => {
 
 desmontarEntidade(cidade1);
 
-
 /* =====================================================================
 17 - Ranking de Livros mais Vendidos
 
@@ -329,5 +338,5 @@ Mais vendidos:
  - 2º lugar: ${livro2}
  - 3º lugar: ${livro3}
 Demais: ${outros}`;
-}
-rankingDosMaisVendidos('AAA', 'BBB', 'CCC', 'DDD', 'EEE', 'FFF') //?
+};
+rankingDosMaisVendidos("AAA", "BBB", "CCC", "DDD", "EEE", "FFF"); //?
