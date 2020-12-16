@@ -5,6 +5,8 @@ import books from "../../../assets/books.svg";
 
 import { fieldsContent, authorizedFieldsContent } from "./constants";
 
+import { adicionaAluno } from "../../../service";
+
 import {
   Typography,
   TextField,
@@ -104,9 +106,9 @@ function Cadastro() {
       emergenciaContato,
       emergenciaTelefone,
     } = input;
-        
-    const removeMask = (value) => Number(value?.replace(/\D/g, ""))
-    
+
+    const removeMask = (value) => Number(value?.replace(/\D/g, ""));
+
     const autorizadosFormatado = autorizados
       .map((item) => `${item.autorizadoNome} - ${item.autorizadoVinculo}`)
       .filter((i) => i !== " - ");
@@ -133,11 +135,9 @@ function Cadastro() {
       autorizacaoFotoVideo: autorizacao,
       observacoes: observacoesFormatadas,
     };
-
-    console.log(data);
-
-    // limparCampos()
-    // setNovo(false)
+    adicionaAluno(data);
+    limparCampos()
+    setNovo(false)
   };
 
   return (
@@ -164,7 +164,6 @@ function Cadastro() {
                       size="small"
                       margin="dense"
                       fullWidth
-                      // className={item.className}
                       helperText={item.helper}
                       type={item.type}
                       name={item.name}
@@ -234,7 +233,6 @@ function Cadastro() {
                             )
                           }
                           select={item.select}
-                          // InputLabelProps={{ shrink: item.shrink }}
                         >
                           {item.select &&
                             item.data.map((option) => (
@@ -274,7 +272,7 @@ function Cadastro() {
                     control={
                       <Switch
                         checked={restricao}
-                        onChange={(event) => setRestricao(event.target.checked)}
+                        onChange={(e) => setRestricao(e.target.checked)}
                         name="restricao"
                       />
                     }
@@ -313,7 +311,7 @@ function Cadastro() {
                   control={
                     <Switch
                       checked={autorizacao}
-                      onChange={(event) => setAutorizacao(event.target.checked)}
+                      onChange={(e) => setAutorizacao(e.target.checked)}
                       name="autorizacao"
                     />
                   }

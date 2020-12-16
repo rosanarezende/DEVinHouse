@@ -1,5 +1,9 @@
+import { useState, useEffect } from "react";
+
 import { Typography } from "@material-ui/core";
 import * as S from "./styles";
+
+import { buscaAlunos } from "../../service";
 
 import background from "../../assets/desenho.jpg";
 import bottom from "../../assets/curve3.svg";
@@ -8,6 +12,12 @@ import Cadastro from "./Cadastro";
 import Listagem from "./Listagem";
 
 function Home() {
+  const [alunos, setAlunos] = useState([]);
+
+  useEffect(() => {
+    buscaAlunos().then((response) => setAlunos(response));
+  }, []);
+
   return (
     <>
       <S.Section1>
@@ -22,7 +32,7 @@ function Home() {
 
       <Cadastro />
 
-      <Listagem />
+      <Listagem alunos={alunos} />
     </>
   );
 }

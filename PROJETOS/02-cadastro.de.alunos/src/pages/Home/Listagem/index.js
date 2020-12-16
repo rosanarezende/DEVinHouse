@@ -3,7 +3,8 @@ import amigos from "../../../assets/amigos.svg";
 import { Typography } from "@material-ui/core";
 import * as S from "./styles";
 
-function Listagem() {
+function Listagem({ alunos }) {
+  console.log(alunos);
   return (
     <S.ListagemWrapper>
       <Typography variant="h3">Listagem de alunos</Typography>
