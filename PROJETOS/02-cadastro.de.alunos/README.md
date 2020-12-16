@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# FRONTEND - PROJETO 02: CADASTRO DE ALUNOS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Prévia
 
-## Available Scripts
+:dash: [Deploy da Aplicação]()
 
-In the project directory, you can run:
+<br>
 
-### `yarn start`
+### Mobile
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<div align="center">
+  <img  width='250' src='' alt="versão mobile">
+</div>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Web
 
-### `yarn test`
+<div align="center">
+  <img  width='600' src='' alt="versão web">
+</div>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
 
-### `yarn build`
+## Ferramentas/tecnologia utilizada
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- HTML
+- CSS 
+- JavaScript
+- React
+- Material-UI
+- Styled Components
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Escopo do projeto
 
-### `yarn eject`
+A escola Amorinha precisa de um sistema para controlar a Consulta e o Cadastro de Alunos das turmas de Educação Infantil e você foi contratado para desenvolver o Frontend dessa aplicação.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Requisitos
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Os requisitos para a aplicação são os seguintes:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+. Um formulário para o cadastro dos Alunos contendo os seguintes campos:
+    1. Nome
+    2. Data de Nascimento
+    3. Nome do Responsável pela criança
+    4. Telefone de Contato do Responsável pela criança
+    5. Em caso de emergência avisar: (Pais, Tios, Avós, Padrinhos)
+    6. Telefone para Emergências
+    7. Possui Restrição Alimentar
+    8. Descrição das Restrições Alimentares
+    9. Autorização de fotos e vídeos da criança para uso escolar
+    10. Lista de autorizados a buscar a criança. Ex. Pedro – Padrinho, Maria – Tia
+    11. Turma
+    12. Observações adicionais
 
-## Learn More
+2. Uma listagem de Alunos que permita editar e excluir alunos e apresente para o usuário os principais campos:
+    1. Nome
+    2. Data de Nascimento
+    3. Turma
+    4. Telefone para Emergências
+    5. Em caso de emergência avisar
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Um campo de texto acima da listagem que será utilizado para filtrar os alunos pelo nome.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br>
 
-### Code Splitting
+## Regras da aplicação
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+• Na tela de cadastro o campo “Descrição das Restrições Alimentares”  somente ficará visível caso a criança possua restrições alimentares;
 
-### Analyzing the Bundle Size
+• No campo Turma será apresentado para escolha uma lista de turmas disponíveis, você não precisa criar uma tela de cadastro para elas, somente uma consulta das mesmas.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+• Os campos “Possui Restrição Alimentar” e Autorização para uso de fotos e vídeos da criança para uso escolar” serão do tipo Checkbox
 
-### Making a Progressive Web App
+• A função editar colocará os dados do aluno no formulário de cadastro
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<br>
 
-### Advanced Configuration
+## Créditos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<!-- O layout foi inspirado no design de ToDo List de [Kövesházi Dániel](https://dribbble.com/shots/2458929-DailyUI-042-ToDo-List) -->
 
-### Deployment
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Licença
 
-### `yarn build` fails to minify
+The [MIT License]() (MIT)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Copyright :copyright: 2020 - Cadastro de Alunos (por Rosana Rezende)
+
+<br>
