@@ -62,7 +62,7 @@ export default createMuiTheme({
       //   borderRadius: "16px",
       // },
       root: {
-        backgroundColor: "#d9cfa04d",
+        backgroundColor: "#EFE8DD",
       },
     },
     // MuiInputLabel: {

@@ -23,7 +23,7 @@ export const Content = styled.div`
     margin-bottom: 5vh;
   }
 
-  img {
+  #img-book {
     width: 20%;
     @media screen and (max-width: 900px) {
       width: 60%;
@@ -46,14 +46,7 @@ export const PaperStyled = styled(Paper)`
       justify-content: space-between;
       flex-wrap: wrap;
       width: 100%;
-      margin-bottom: 2vh 0;
-      gap: 10px;
-      /* @media screen and (max-width: 1200px) {
-        gap: 5px;
-      }
-      @media screen and (max-width: 900px) {
-        gap: 10px;
-      } */
+      /* margin-bottom: 2vh 0; */
 
       .dez {
         width: 10%;
@@ -65,7 +58,7 @@ export const PaperStyled = styled(Paper)`
         width: 24%;
       }
       .trinta {
-        width: 29%;
+        width: 30%;
       }
       .quarenta {
         width: 40%;
@@ -77,7 +70,10 @@ export const PaperStyled = styled(Paper)`
         width: 59%;
       }
       .setenta {
-        width: 70%;
+        width: 69%;
+      }
+      .oitenta {
+        width: 79%;
       }
       .dez,
       .vinte,
@@ -86,19 +82,28 @@ export const PaperStyled = styled(Paper)`
       .quarenta,
       .cinquenta,
       .sessenta,
-      .setenta {
+      .setenta, 
+      .oitenta {
         margin-bottom: 0.5vh;
         @media screen and (max-width: 900px) {
           width: 100%;
         }
       }
+      
+    }
+    .restricao {
+      margin: 1vh 0 2vh;
     }
 
-    /* #button-wrapper {
+    #autorizacao {
+      margin: 1vh 0 0;
+    }
+
+    #buttons-wrapper {
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
       gap: 10px;
-      margin-top: 20px;
-    } */
+      margin-top: 10px;
+    }
   }
 `;
