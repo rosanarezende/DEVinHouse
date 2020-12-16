@@ -16,19 +16,21 @@ export default function EditorInput({ editorState, setEditorState, text }) {
     <Editor
       editorState={editorState}
       onEditorStateChange={onEditorStateChange}
-      wrapperStyle={{
-        borderRadius: "6px",
-        marginBottom: "24px",
-      }}
+      wrapperStyle={{ marginBottom: "24px" }}
       toolbarStyle={{
+        border: "1px solid #fff",
+        borderBottomLeftRadius: "0px",
+        borderBottomRightRadius: "0px",
         borderTopLeftRadius: "6px",
         borderTopRightRadius: "6px",
         boxSizing: "border-box",
+        marginBottom: "0",
       }}
       editorStyle={{
+        border: "1px solid #fff",
+        borderBottomLeftRadius: "6px",
+        borderBottomRightRadius: "6px",
         padding: "5px 10px 10px",
-        border: "1px solid #F1F1F1",
-        borderRadius: "6px",
       }}
       placeholder={text || ""}
     />

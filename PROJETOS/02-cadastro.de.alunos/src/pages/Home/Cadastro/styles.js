@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Paper } from "@material-ui/core";
+import { Paper, IconButton } from "@material-ui/core";
 
 export const CadastroWrapper = styled.section`
   padding: 0 2em;
@@ -40,70 +40,90 @@ export const PaperStyled = styled(Paper)`
     margin: 1vh 0 3vh;
   }
 
-  form {
-    #inputs {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
+  .trinta {
+    width: 30%;
+  }
+  .quarenta {
+    width: 40%;
+  }
+  .sessenta {
+    width: 59%;
+  }
+  .setenta {
+    width: 69%;
+  }
+  .cem {
+    margin-bottom: 0.5vh;
+    width: 100%;
+  }
+
+  .trinta,
+  .quarenta,
+  .sessenta,
+  .setenta {
+    margin-bottom: 0.5vh;
+    @media screen and (max-width: 1600px) {
       width: 100%;
-      /* margin-bottom: 2vh 0; */
-
-      .dez {
-        width: 10%;
-      }
-      .vinte {
-        width: 20%;
-      }
-      .vinteCinco {
-        width: 24%;
-      }
-      .trinta {
-        width: 30%;
-      }
-      .quarenta {
-        width: 40%;
-      }
-      .cinquenta {
-        width: 50%;
-      }
-      .sessenta {
-        width: 59%;
-      }
-      .setenta {
-        width: 69%;
-      }
-      .oitenta {
-        width: 79%;
-      }
-      .dez,
-      .vinte,
-      .vinteCinco,
-      .trinta,
-      .quarenta,
-      .cinquenta,
-      .sessenta,
-      .setenta, 
-      .oitenta {
-        margin-bottom: 0.5vh;
-        @media screen and (max-width: 900px) {
-          width: 100%;
-        }
-      }
-      
     }
-    .restricao {
-      margin: 1vh 0 2vh;
+  }
+
+  #inputs {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    width: 100%;
+    /* margin-bottom: 2vh 0; */
+  }
+
+  #top {
+    margin-top: 1vh;
+    width: 69%;
+    @media screen and (max-width: 1600px) {
+      width: 100%;
+    }
+  }
+
+  #restricao {
+    align-self: flex-start;
+  }
+
+  #autorizados {
+    margin: 1vh 0 0;
+
+    #autorizado {
+      position: relative;
+      padding-right: 50px;
     }
 
-    #autorizacao {
-      margin: 1vh 0 0;
-    }
-
-    #buttons-wrapper {
+    #adicionar {
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       gap: 10px;
-      margin-top: 10px;
     }
+  }
+
+  #novo {
+    padding: 3vh 0;
+    @media screen and (max-width: 1600px) {
+      padding: 2vh 0 1vh;
+    }
+  }
+
+  #buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+`;
+
+export const CloseIcon = styled(IconButton)`
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: gray;
+  :hover {
+    color: red;
   }
 `;
