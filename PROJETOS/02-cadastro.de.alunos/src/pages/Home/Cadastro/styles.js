@@ -5,7 +5,7 @@ export const CadastroWrapper = styled.section`
   padding: 0 2em;
 
   h3 {
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 1200px) {
       margin-top: 2vh;
       text-align: center;
     }
@@ -18,26 +18,35 @@ export const Content = styled.div`
   align-items: center;
   margin: 2vh 0;
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1200px) {
     flex-direction: column;
     margin-bottom: 5vh;
   }
 
   #img-book {
-    width: 20%;
-    @media screen and (max-width: 900px) {
-      width: 60%;
+    width: 19%;
+    @media screen and (max-width: 1200px) {
+      width: 45%;
+    }
+    @media screen and (max-width: 600px) {
+      width: 75%;
     }
   }
 `;
 
 export const PaperStyled = styled(Paper)`
-  width: 70%;
-  padding: 2em;
-
-  @media screen and (max-width: 900px) {
-    width: 100%;
-    margin: 1vh 0 3vh;
+    padding: 2em;
+    margin-bottom: 2vh;
+    @media screen and (max-width: 1200px) {
+        margin: 1vh 0 3vh;
+      }
+  .form{
+    width: 70%;
+  
+    @media screen and (max-width: 1200px) {
+      width: 100%;
+    }
+    
   }
 
   .trinta {

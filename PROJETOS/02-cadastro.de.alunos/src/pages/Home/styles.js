@@ -5,7 +5,7 @@ export const Section1 = styled.section`
   height: 65vh;
   background: rgba(100, 0, 0, 0.1);
   @media screen and (max-width: 900px) {
-    height: 55vh;
+    height: 60vh;
   }
 
   #content {

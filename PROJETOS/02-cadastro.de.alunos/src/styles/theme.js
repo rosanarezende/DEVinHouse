@@ -39,24 +39,11 @@ export default createMuiTheme({
     h3: { fontSize: "min(48px, 8vw)", color: "#591521", fontWeight: "revert" }, //fontWeight: "bold"
     h4: { fontSize: "min(34px, 7vw)" },
     h5: { fontSize: "min(24px, 6.5vw)", lineHeight: "33px" },
-    h6: { fontSize: "min(20px, 5.5vw)", lineHeight: "28px" },
+    h6: { fontSize: "min(20px, 5.5vw)", lineHeight: "28px", color: "#591521" },
     body1: { fontSize: "min(16px, 4.5vw)", lineHeight: "18px" },
     body2: { fontSize: "min(14px, 4vw)", lineHeight: "16px" },
   },
   overrides: {
-    // MuiOutlinedInput: {
-    //   root: {
-    //     borderRadius: "26px",
-    //   },
-    //   input: {
-    //     textAlign: "center",
-    //   },
-    // },
-    // MuiButton: {
-    //   root: {
-    //     borderRadius: "26px",
-    //   },
-    // },
     MuiPaper: {
       // rounded: {
       //   borderRadius: "16px",
@@ -65,13 +52,10 @@ export default createMuiTheme({
         backgroundColor: "#EFE8DD",
       },
     },
-    // MuiInputLabel: {
-    //   formControl: {
-    //     width: "calc(100% - 18px)",
-    //     textAlign: "center",
-    //   },
-    //   shrink: {
-    //     textAlign: "left",
+    // MuiTableHead: {
+      
+    //   root: {
+    //     backgroundColor: "#EFE8DD",
     //   },
     // },
   },

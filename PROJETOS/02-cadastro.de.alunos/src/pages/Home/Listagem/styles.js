@@ -6,7 +6,7 @@ export const ListagemWrapper = styled.section`
   padding: 0 2em;
 
   h3 {
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 1200px) {
       text-align: center;
     }
   }
@@ -17,25 +17,46 @@ export const Content = styled.div`
   justify-content: space-around;
   align-items: center;
   margin: 2vh 0;
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1200px) {
     flex-direction: column-reverse;
     margin-bottom: 5vh;
   }
 
   img {
     width: 25%;
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 1200px) {
+      width: 60%;
+    }
+    @media screen and (max-width: 600px) {
       width: 80%;
     }
   }
 `;
 
 export const PaperStyled = styled(Paper)`
-  width: 70%;
-  padding: 2em;
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1200px) {
     width: 100%;
     margin: 1vh 0 3vh;
   }
+
+  .MuiTableBody-root {
+    tr {
+      background: rgba(100, 100, 100, 0.03);
+    }
+  }
+
+  .MuiTableCell-root {
+    padding: 16px 6px;
+    
+  }
+
+  .MuiTableCell-head{
+    font-size: min(16px, 4.5vw) !important;
+    font-weight: bold ;
+    background-color: #EFE8DD !important;
+    color: #591521;
+  }
+
+  
 `;

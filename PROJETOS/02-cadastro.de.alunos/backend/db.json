@@ -54,7 +54,7 @@
     {
       "aluno": {
         "nome": "Aluno 3",
-        "nascimento": "2010-12-01",
+        "nascimento": "2020-12-02",
         "turma": "Turma 3",
         "restricoesAlimentares": {
           "possui": true,

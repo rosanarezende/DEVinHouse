@@ -36,8 +36,6 @@ function Cadastro() {
   const [observacoes, setObservacoes] = useState(EditorState.createEmpty());
   const observacoesFormatadas = formatEditorOutput(observacoes);
 
-  // const [turma, setTurma] = useState("");
-
   const [autorizados, setAutorizados] = useState([
     { autorizadoNome: "", autorizadoVinculo: "" },
   ]);
@@ -136,8 +134,8 @@ function Cadastro() {
       observacoes: observacoesFormatadas,
     };
     adicionaAluno(data);
-    limparCampos()
-    setNovo(false)
+    limparCampos();
+    setNovo(false);
   };
 
   return (
@@ -292,7 +290,7 @@ function Cadastro() {
                     type="text"
                     label="Descrição das restrições alimentares"
                     value={descreveRestricao || ""}
-                    onChange={(e) => setDescreveRestricao (e.target.value)}
+                    onChange={(e) => setDescreveRestricao(e.target.value)}
                   />
                 )}
               </div>
