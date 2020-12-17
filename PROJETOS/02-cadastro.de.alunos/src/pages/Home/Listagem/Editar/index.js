@@ -129,10 +129,9 @@ function Editar({ editOpen, setEditOpen, alunoClicado, setAlunos }) {
       autorizacaoFotoVideo: autorizacao,
       observacoes: observacoesFormatadas,
     };
-    editaAluno(alunoClicado.id, data).then(() =>
-      buscaAlunos().then((response) => setAlunos(response))
-    );
-    setEditOpen(false);
+    editaAluno(alunoClicado.id, data)
+      .then(() => buscaAlunos().then((response) => setAlunos(response)))
+      .then(() => setEditOpen(false));
   };
 
   const handleClose = () => {

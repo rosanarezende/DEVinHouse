@@ -19,11 +19,13 @@ function Listagem({ alunos, setAlunos }) {
   const [alunoClicado, setAlunoClicado] = useState(undefined);
 
   const deletaAlunoClicado = () => {
-    deletaAluno(alunoClicado.id).then(() =>
-      buscaAlunos().then((response) => {
-        setAlunos(response);
-      })
-    );
+    deletaAluno(alunoClicado.id)
+      .then(() =>
+        buscaAlunos().then((response) => {
+          setAlunos(response);
+        })
+      )
+      .then(() => setOpen(false));
   };
 
   const handleClickDelete = (alunoDado) => {
