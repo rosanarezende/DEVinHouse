@@ -13,10 +13,15 @@ import Listagem from "./Listagem";
 
 function Home() {
   const [alunos, setAlunos] = useState([]);
+  // const [open, setOpen] = useState(false);
 
   useEffect(() => {
     buscaAlunos().then((response) => setAlunos(response));
   }, []);
+
+  // const handleClose = () => {
+  //   // setOpen(false);
+  // };
 
   return (
     <>
@@ -30,9 +35,9 @@ function Home() {
         </div>
       </S.Section1>
 
-      <Cadastro />
+      <Cadastro setAlunos={setAlunos} />
 
-      <Listagem alunos={alunos} />
+      <Listagem alunos={alunos} setAlunos={setAlunos} />
     </>
   );
 }

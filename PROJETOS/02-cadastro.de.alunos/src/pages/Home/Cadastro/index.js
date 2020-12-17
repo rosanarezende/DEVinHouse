@@ -5,25 +5,21 @@ import books from "../../../assets/books.svg";
 
 import { fieldsContent, authorizedFieldsContent } from "./constants";
 
-import { adicionaAluno } from "../../../service";
+import { adicionaAluno, buscaAlunos } from "../../../service";
 
-import {
-  Typography,
-  TextField,
-  MenuItem,
-  FormLabel,
-  FormControlLabel,
-  Switch,
-  Button,
-} from "@material-ui/core";
-import { Close } from "@material-ui/icons";
+import { Typography, Button } from "@material-ui/core";
 import * as S from "./styles";
 
 import EditorInput, {
   formatEditorOutput,
 } from "../../../components/EditorInput";
+import Inputs from "../../../components/Inputs";
+import InputList from "../../../components/InputList";
+import ConditionalSwitch from "../../../components/ConditionalSwitch ";
+import Switch from "../../../components/Switch";
+import Novo from "./Novo";
 
-function Cadastro() {
+function Cadastro({ setAlunos }) {
   const [novo, setNovo] = useState(false);
 
   const [input, setInput] = useState({});
@@ -51,27 +47,6 @@ function Cadastro() {
   const novoAluno = () => {
     limparCampos();
     setNovo(true);
-  };
-
-  const adicionaCampoAutorizado = () => {
-    setAutorizados([
-      ...autorizados,
-      { autorizadoNome: "", autorizadoVinculo: "" },
-    ]);
-  };
-
-  const removeCampoAutorizado = (position) => {
-    var filtered = autorizados.filter((value, index) => position !== index);
-    setAutorizados(filtered);
-  };
-
-  const adicionaPessoaAutorizada = (position, field, value) => {
-    const updatedItems = autorizados.map((autorizado, index) => {
-      return index === position
-        ? { ...autorizado, [field]: value }
-        : autorizado;
-    });
-    setAutorizados(updatedItems);
   };
 
   const telefoneMask = (telefoneNumber) => {
@@ -133,7 +108,9 @@ function Cadastro() {
       autorizacaoFotoVideo: autorizacao,
       observacoes: observacoesFormatadas,
     };
-    adicionaAluno(data);
+    adicionaAluno(data).then(() =>
+      buscaAlunos().then((response) => setAlunos(response))
+    );
     limparCampos();
     setNovo(false);
   };
@@ -146,177 +123,27 @@ function Cadastro() {
         <S.PaperStyled>
           {novo ? (
             <form onSubmit={handleSubmit}>
-              <div id="inputs">
-                {fieldsContent.map((item, index) => (
-                  <div
-                    key={index}
-                    id={item.top && "top"}
-                    className={item.className}
-                  >
-                    {item.top && (
-                      <Typography variant="h5">{item.top}</Typography>
-                    )}
-                    <TextField
-                      required
-                      variant="outlined"
-                      size="small"
-                      margin="dense"
-                      fullWidth
-                      helperText={item.helper}
-                      type={item.type}
-                      name={item.name}
-                      label={item.label}
-                      value={input[item.name] || ""}
-                      onChange={changeInput}
-                      select={item.select}
-                      InputLabelProps={{
-                        shrink: item.shrink,
-                      }}
-                      InputProps={{
-                        inputProps: {
-                          max: item.max,
-                          pattern: item.pattern,
-                          title: item.title,
-                          style: {
-                            textAlign: "center",
-                          },
-                        },
-                      }}
-                    >
-                      {item.select &&
-                        item.data.map((option) => (
-                          <MenuItem
-                            style={{
-                              justifyContent: "center",
-                            }}
-                            key={option.id}
-                            value={option.name}
-                          >
-                            {option.name}
-                          </MenuItem>
-                        ))}
-                    </TextField>
-                  </div>
-                ))}
-              </div>
+              <Inputs
+                data={fieldsContent}
+                input={input}
+                changeInput={changeInput}
+              />
 
-              <div id="autorizados">
-                <Typography variant="h5">
-                  Pessoas autorizadas a buscar a criança
-                </Typography>
-                {autorizados.map((autorizado, index) => (
-                  <div key={index} id="autorizado">
-                    <S.CloseIcon onClick={() => removeCampoAutorizado(index)}>
-                      <Close />
-                    </S.CloseIcon>
-                    <div id="inputs">
-                      {authorizedFieldsContent.map((item, i) => (
-                        <TextField
-                          // required
-                          key={i}
-                          variant="outlined"
-                          size="small"
-                          margin="dense"
-                          className={item.className}
-                          helperText={item.helper}
-                          type={item.type}
-                          name={item.name}
-                          label={item.label}
-                          value={autorizado[item.name] || ""}
-                          onChange={(e) =>
-                            adicionaPessoaAutorizada(
-                              index,
-                              item.name,
-                              e.target.value
-                            )
-                          }
-                          select={item.select}
-                        >
-                          {item.select &&
-                            item.data.map((option) => (
-                              <MenuItem
-                                style={{ justifyContent: "center" }}
-                                key={option.id}
-                                value={option.name}
-                              >
-                                {option.name}
-                              </MenuItem>
-                            ))}
-                        </TextField>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-                <div id="adicionar">
-                  <Button
-                    color="primary"
-                    variant="outlined"
-                    onClick={adicionaCampoAutorizado}
-                  >
-                    + autorizado
-                  </Button>
-                </div>
-              </div>
+              <InputList
+                data={autorizados}
+                setData={setAutorizados}
+                internData={authorizedFieldsContent}
+              />
 
-              <Typography variant="h5" gutterBottom>
-                Restrições alimentares
-              </Typography>
-              <div id="inputs">
-                <div className="quarenta" id="restricao">
-                  <FormLabel component="legend">
-                    A criança possui restrição alimentar?
-                  </FormLabel>
-                  <FormControlLabel
-                    control={
-                      <Switch
-                        checked={restricao}
-                        onChange={(e) => setRestricao(e.target.checked)}
-                        name="restricao"
-                      />
-                    }
-                    label="Sim"
-                  />
-                </div>
-
-                {restricao && (
-                  <TextField
-                    // required
-                    variant="outlined"
-                    multiline
-                    rows={3}
-                    size="small"
-                    margin="dense"
-                    className="sessenta"
-                    type="text"
-                    label="Descrição das restrições alimentares"
-                    value={descreveRestricao || ""}
-                    onChange={(e) => setDescreveRestricao(e.target.value)}
-                  />
-                )}
-              </div>
-
+              <ConditionalSwitch
+                switchData={restricao}
+                setSwitchData={setRestricao}
+                inputData={descreveRestricao}
+                setInputData={setDescreveRestricao}
+              />
               <br />
 
-              <Typography variant="h5" gutterBottom>
-                Autorização
-              </Typography>
-              <div>
-                <FormLabel component="legend">
-                  Concede autorização de fotos e vídeos da criança para uso
-                  escolar?
-                </FormLabel>
-                <FormControlLabel
-                  control={
-                    <Switch
-                      checked={autorizacao}
-                      onChange={(e) => setAutorizacao(e.target.checked)}
-                      name="autorizacao"
-                    />
-                  }
-                  label="Sim"
-                />
-              </div>
-
+              <Switch data={autorizacao} setData={setAutorizacao} />
               <br />
 
               <Typography variant="h5" gutterBottom>
@@ -344,22 +171,7 @@ function Cadastro() {
               </div>
             </form>
           ) : (
-            <div id="novo">
-              <Typography variant="h6" align="center" gutterBottom>
-                Clique no botão para cadastrar um novo aluno
-              </Typography>
-              <br />
-              <div id="buttons-wrapper">
-                <Button
-                  type="button"
-                  color="primary"
-                  variant="outlined"
-                  onClick={novoAluno}
-                >
-                  NOVO
-                </Button>
-              </div>
-            </div>
+            <Novo add={novoAluno} />
           )}
         </S.PaperStyled>
         <img src={books} alt="livros" id="img-book" />
