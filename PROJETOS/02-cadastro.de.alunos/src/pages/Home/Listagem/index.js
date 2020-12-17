@@ -21,21 +21,12 @@ function Listagem({ alunos, setAlunos }) {
   const deletaAlunoClicado = () => {
     deletaAluno(alunoClicado.id).then(() =>
       buscaAlunos().then((response) => {
-        console.log(response);
         setAlunos(response);
       })
     );
   };
 
   const handleClickDelete = (alunoDado) => {
-    // if (window.confirm("Tem certeza que deseja deletar?")) {
-    //   deletaAluno(alunoDado.id).then(() =>
-    //     buscaAlunos().then((response) => {
-    //       console.log(response);
-    //       setAlunos(response);
-    //     })
-    //   );
-    // }
     setAlunoClicado(alunoDado);
     setOpen(true);
   };

@@ -22,8 +22,6 @@ export default createMuiTheme({
       dark: "#d32f2f",
       contrastText: "#fff",
     },
-    // "#025939", // "#591521", // "#01402E", // "#8C1B39",
-    // #56BF8E // #D9CFA0 // #D9D6D2 // #D9AB9A
     text: {
       primary: "#01402E",
       secondary: "rgba(0, 0, 0, 0.54)",
@@ -34,8 +32,12 @@ export default createMuiTheme({
 
   typography: {
     fontSize: 14,
-    h1: { fontSize: "min(96px, 12vw)", color: "rgba(0, 0, 0, 0.87)" },
-    h2: { fontSize: "min(60px, 10vw)", color: "#01402E", fontWeight: "bolder" },
+    h1: { fontSize: "min(96px, 12vw)", color: "rgba(0, 0, 0, 0.7)" },
+    h2: {
+      fontSize: "min(60px, 10vw)",
+      color: "#3b9c60",
+      fontWeight: "bolder",
+    },
     h3: { fontSize: "min(48px, 8vw)", color: "#591521", fontWeight: "revert" }, //fontWeight: "bold"
     h4: { fontSize: "min(34px, 7vw)" },
     h5: { fontSize: "min(24px, 6.5vw)", lineHeight: "33px" },
@@ -45,18 +47,9 @@ export default createMuiTheme({
   },
   overrides: {
     MuiPaper: {
-      // rounded: {
-      //   borderRadius: "16px",
-      // },
       root: {
         backgroundColor: "#EFE8DD",
       },
     },
-    // MuiTableHead: {
-      
-    //   root: {
-    //     backgroundColor: "#EFE8DD",
-    //   },
-    // },
   },
 });

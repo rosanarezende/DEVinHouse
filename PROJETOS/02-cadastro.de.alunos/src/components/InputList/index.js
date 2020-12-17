@@ -36,7 +36,7 @@ function InputList({ data, setData, internData }) {
             <div id="inputs">
               {internData.map((item, i) => (
                 <TextField
-                  // required
+                  required
                   key={i}
                   variant="outlined"
                   size="small"

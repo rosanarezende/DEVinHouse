@@ -37,7 +37,6 @@ function ConditionalSwitch({
 
         {switchData && (
           <TextField
-            // required
             variant="outlined"
             multiline
             rows={3}

@@ -1,5 +1,4 @@
-// importar logo
-import logo from "../../assets/andorinha.png";
+import logo from "../../assets/amora.png";
 
 import { Toolbar, Typography } from "@material-ui/core";
 import * as S from "./styles";
@@ -10,7 +9,7 @@ function Header() {
       <Toolbar>
         <S.Logo src={logo} alt="logo" />
         <Typography component="h1" variant="h2">
-          Escola Andorinha
+          Amorinha
         </Typography>
         <S.DivGrow />
       </Toolbar>

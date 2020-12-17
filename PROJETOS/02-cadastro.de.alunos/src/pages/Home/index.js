@@ -13,15 +13,10 @@ import Listagem from "./Listagem";
 
 function Home() {
   const [alunos, setAlunos] = useState([]);
-  // const [open, setOpen] = useState(false);
 
   useEffect(() => {
     buscaAlunos().then((response) => setAlunos(response));
   }, []);
-
-  // const handleClose = () => {
-  //   // setOpen(false);
-  // };
 
   return (
     <>

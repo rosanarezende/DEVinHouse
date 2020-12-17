@@ -17,7 +17,6 @@ function Switch({ data, setData }) {
             <SwitchComponent
               checked={data}
               onChange={(e) => setData(e.target.checked)}
-              // name="autorizacao"
             />
           }
         />
