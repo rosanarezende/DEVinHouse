@@ -11,21 +11,33 @@ import * as S from "./styles";
 
 import Detalhes from "./Detalhes";
 import Editar from "./Editar";
+import Confirm from "../../../components/Confirm";
 
 function Listagem({ alunos, setAlunos }) {
+  const [open, setOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
   const [alunoClicado, setAlunoClicado] = useState(undefined);
 
+  const deletaAlunoClicado = () => {
+    deletaAluno(alunoClicado.id).then(() =>
+      buscaAlunos().then((response) => {
+        console.log(response);
+        setAlunos(response);
+      })
+    );
+  };
+
   const handleClickDelete = (alunoDado) => {
-    if (window.confirm("Tem certeza que deseja deletar?")) {
-      deletaAluno(alunoDado.id).then(() =>
-        buscaAlunos().then((response) => {
-          console.log(response);
-          setAlunos(response);
-        })
-      );
-    }
-    // setOpen(true);
+    // if (window.confirm("Tem certeza que deseja deletar?")) {
+    //   deletaAluno(alunoDado.id).then(() =>
+    //     buscaAlunos().then((response) => {
+    //       console.log(response);
+    //       setAlunos(response);
+    //     })
+    //   );
+    // }
+    setAlunoClicado(alunoDado);
+    setOpen(true);
   };
 
   const handleUpdate = (alunoDado) => {
@@ -85,14 +97,24 @@ function Listagem({ alunos, setAlunos }) {
           />
         </S.Content>
       </S.ListagemWrapper>
-      {
-        alunoClicado &&
+      {alunoClicado && editOpen && (
         <Editar
           editOpen={editOpen}
           setEditOpen={setEditOpen}
           alunoClicado={alunoClicado}
+          setAlunos={setAlunos}
         />
-      }
+      )}
+
+      {alunoClicado && open && (
+        <Confirm
+          open={open}
+          setOpen={setOpen}
+          title="Deletar Cadastro"
+          text={`Tem certeza que deseja deletar o cadastro de ${alunoClicado.aluno.nome.toUpperCase()}?`}
+          functionConfirm={deletaAlunoClicado}
+        />
+      )}
     </>
   );
 }

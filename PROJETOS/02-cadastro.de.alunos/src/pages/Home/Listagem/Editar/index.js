@@ -1,19 +1,14 @@
 import { useState, useEffect } from "react";
 import { EditorState } from "draft-js";
 
-import { buscaAluno } from "../../../../service";
+import { buscaAluno, buscaAlunos, editaAluno } from "../../../../service";
 import {
   fieldsContent,
   authorizedFieldsContent,
 } from "../../Cadastro/constants";
 
 import * as S from "./styles";
-import {
-  DialogContent,
-  Typography,
-  Button,
-  DialogActions,
-} from "@material-ui/core";
+import { DialogContent, Typography, Button } from "@material-ui/core";
 
 import EditorInput, {
   formatEditorInput,
@@ -24,9 +19,7 @@ import InputList from "../../../../components/InputList";
 import ConditionalSwitch from "../../../../components/ConditionalSwitch ";
 import Switch from "../../../../components/Switch";
 
-function Editar({ editOpen, setEditOpen, alunoClicado }) {
-  console.log(editOpen, alunoClicado);
-
+function Editar({ editOpen, setEditOpen, alunoClicado, setAlunos }) {
   const [input, setInput] = useState({});
 
   const [restricao, setRestricao] = useState(false);
@@ -40,6 +33,14 @@ function Editar({ editOpen, setEditOpen, alunoClicado }) {
   const [autorizados, setAutorizados] = useState([
     { autorizadoNome: "", autorizadoVinculo: "" },
   ]);
+
+  const telefoneMask = (telefoneNumber) => {
+    return telefoneNumber
+      .replace(/\D/g, "")
+      .replace(/^(\d\d)(\d)/g, "($1) $2")
+      .replace(/(\d{5})(\d)/, "$1-$2")
+      .replace(/(-\d{4})\d+?$/, "$1");
+  };
 
   useEffect(() => {
     buscaAluno(alunoClicado.id).then((response) => {
@@ -57,9 +58,9 @@ function Editar({ editOpen, setEditOpen, alunoClicado }) {
         nascimento: aluno.nascimento,
         turma: aluno.turma,
         responsavel: responsavel.nome,
-        telefone: responsavel.telefone,
+        telefone: telefoneMask(responsavel.telefone.toString()),
         emergenciaContato: emergencia.avisar,
-        emergenciaTelefone: emergencia.telefone,
+        emergenciaTelefone: telefoneMask(emergencia.telefone.toString()),
       });
       setRestricao(aluno.restricoesAlimentares.possui);
       setDescreveRestricao(aluno.restricoesAlimentares.detalhes);
@@ -76,14 +77,6 @@ function Editar({ editOpen, setEditOpen, alunoClicado }) {
       );
     });
   }, [alunoClicado.id]);
-
-  const telefoneMask = (telefoneNumber) => {
-    return telefoneNumber
-      .replace(/\D/g, "")
-      .replace(/^(\d\d)(\d)/g, "($1) $2")
-      .replace(/(\d{5})(\d)/, "$1-$2")
-      .replace(/(-\d{4})\d+?$/, "$1");
-  };
 
   const changeInput = (e) => {
     const { name, value } = e.target;
@@ -136,10 +129,10 @@ function Editar({ editOpen, setEditOpen, alunoClicado }) {
       autorizacaoFotoVideo: autorizacao,
       observacoes: observacoesFormatadas,
     };
-    console.log(data);
-    // adicionaAluno(data).then(() =>
-    //   buscaAlunos().then((response) => setAlunos(response))
-    // );
+    editaAluno(alunoClicado.id, data).then(() =>
+      buscaAlunos().then((response) => setAlunos(response))
+    );
+    setEditOpen(false);
   };
 
   const handleClose = () => {
@@ -181,24 +174,23 @@ function Editar({ editOpen, setEditOpen, alunoClicado }) {
             setEditorState={setObservacoes}
             text="Escreva nesse espaço as observações que considerar importantes"
           />
+
+          <div id="buttons-wrapper">
+            <Button type="submit" color="primary" variant="contained">
+              Salvar
+            </Button>
+
+            <Button
+              type="button"
+              color="secondary"
+              variant="outlined"
+              onClick={handleClose}
+            >
+              Cancelar
+            </Button>
+          </div>
         </form>
       </DialogContent>
-      <DialogActions
-        style={{ padding: "20px", display: "flex", justifyContent: "center" }}
-      >
-        <Button type="submit" color="primary" variant="contained">
-          Salvar
-        </Button>
-
-        <Button
-          type="button"
-          color="secondary"
-          variant="outlined"
-          onClick={handleClose}
-        >
-          Cancelar
-        </Button>
-      </DialogActions>
     </S.EditarWrapper>
   );
 }

@@ -34,7 +34,6 @@ export const Content = styled.div`
 `;
 
 export const PaperStyled = styled(Paper)`
-
   @media screen and (max-width: 1200px) {
     width: 100%;
     margin: 1vh 0 3vh;
@@ -42,21 +41,18 @@ export const PaperStyled = styled(Paper)`
 
   .MuiTableBody-root {
     tr {
-      background: rgba(100, 100, 100, 0.03);
+      background: rgba(100, 100, 100, 0.05);
     }
   }
 
   .MuiTableCell-root {
     padding: 16px 6px;
-    
   }
 
-  .MuiTableCell-head{
+  .MuiTableCell-head {
     font-size: min(16px, 4.5vw) !important;
-    font-weight: bold ;
-    background-color: #EFE8DD !important;
+    font-weight: bold;
+    background-color: #efe8dd !important;
     color: #591521;
   }
-
-  
 `;

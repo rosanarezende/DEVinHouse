@@ -45,9 +45,9 @@ export const deletaAluno = async (id) => {
   }
 };
 
-export const editaAluno = async (aluno) => {
+export const editaAluno = async (id, aluno) => {
   try {
-    await axiosProvider.put(`/alunos/${aluno.id}`, aluno);
+    await axiosProvider.put(`/alunos/${id}`, aluno);
     buscaAlunos();
   } catch (error) {
     console.error(error);
