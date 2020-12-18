@@ -1,13 +1,21 @@
 import * as S from "./styles";
 
+import rosana50 from "../../assets/rosana-50.png";
+import rosana75 from "../../assets/rosana-75.png";
+import rosana100 from "../../assets/rosana-100.png";
+
 function Footer() {
   return (
     <S.FooterWrapper>
-      <img
-        src="https://user-images.githubusercontent.com/45580434/86594186-f53cd800-bf6c-11ea-9868-bdb10d9083f6.png"
-        alt="logo"
-        id="rosana-logo"
-      />
+      <picture>
+          <source media="(max-width: 800px)" srcSet={rosana50} />
+          <source media="(max-width: 1600px)" srcSet={rosana75} />
+          <img
+            src={rosana100}
+            alt="logo-rosana"
+            id="rosana-logo"
+          />
+        </picture>
 
       <div id="social">
         <a

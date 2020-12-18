@@ -4,7 +4,7 @@ export const FooterWrapper = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 8vh;
+  height: 10vh;
   padding: 0 15vw;
   background: rgba(100, 0, 0, 0.1);
 
@@ -12,8 +12,12 @@ export const FooterWrapper = styled.footer`
     padding: 0 10vw;
   }
 
+  picture  {
+    display: flex;
+    align-items: center;
+  }
+
   #rosana-logo {
-    height: 4.5vh;
     opacity: 0.6;
   }
 
@@ -22,10 +26,10 @@ export const FooterWrapper = styled.footer`
   }
 
   .social-media {
-    height: 2.5vh;
+    height: 3vh;
     margin: 0 1vw;
     @media screen and (max-width: 900px) {
-      margin: 0 1.5vw;
+      margin: 0 2.5vw;
     }
   }
 

@@ -1,5 +1,4 @@
 import axios from "axios";
-
 // ==== MIRAGE
 // relação entre tabelas ( https://miragejs.com/docs/main-concepts/relationships/ )
 // shorthand ( https://miragejs.com/docs/main-concepts/shorthands/ )

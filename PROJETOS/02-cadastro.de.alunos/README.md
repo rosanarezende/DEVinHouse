@@ -2,7 +2,7 @@
 
 ## Prévia
 
-:dash: [Deploy da Aplicação](https://amorinha.surge.sh/)
+:dash: [Deploy da Aplicação](https://amorinha.surge.sh/){:target="_blank"}
 
 <br>
 
@@ -25,9 +25,12 @@
 - HTML
 - CSS 
 - JavaScript
-- React
-- Material-UI
-- Styled Components
+- React (principal biblioteca para construção do site)
+- Material-UI (biblioteca de UI com Material Design)
+- Styled Components (biblioteca que permite escrever códigos CSS no JS)
+- Formulários com validação
+- Responsividade e adaptação de aplicação web para front
+- PWA
 
 <br>
 
@@ -41,44 +44,44 @@ A escola Amorinha precisa de um sistema para controlar a Consulta e o Cadastro d
 
 Os requisitos para a aplicação são os seguintes:
 
-- [] Um formulário para o cadastro dos Alunos contendo os seguintes campos:
+- [x] Um formulário para o cadastro dos Alunos contendo os seguintes campos:
 
-    1. Nome
-    2. Data de Nascimento
-    3. Nome do Responsável pela criança
-    4. Telefone de Contato do Responsável pela criança
-    5. Em caso de emergência avisar: (Pais, Tios, Avós, Padrinhos)
-    6. Telefone para Emergências
-    7. Possui Restrição Alimentar
-    8. Descrição das Restrições Alimentares
-    9. Autorização de fotos e vídeos da criança para uso escolar
-    10. Lista de autorizados a buscar a criança. Ex. Pedro – Padrinho, Maria – Tia
-    11. Turma
-    12. Observações adicionais
-
-
-
-- [] Uma listagem de Alunos que permita editar e excluir alunos e apresente para o usuário os principais campos:
-    1. Nome
-    2. Data de Nascimento
-    3. Turma
-    4. Telefone para Emergências
-    5. Em caso de emergência avisar
+  1. Nome
+  2. Data de Nascimento
+  3. Nome do Responsável pela criança
+  4. Telefone de Contato do Responsável pela criança
+  5. Em caso de emergência avisar: (Pais, Tios, Avós, Padrinhos)
+  6. Telefone para Emergências
+  7. Possui Restrição Alimentar
+  8. Descrição das Restrições Alimentares
+  9. Autorização de fotos e vídeos da criança para uso escolar
+  10. Lista de autorizados a buscar a criança. Ex. Pedro – Padrinho, Maria – Tia
+  11. Turma
+  12. Observações adicionais
 
 
-- [] Um campo de texto acima da listagem que será utilizado para filtrar os alunos pelo nome.
+- [x] Uma listagem de Alunos que permita editar e excluir alunos e apresente para o usuário os principais campos:
+
+  1. Nome
+  2. Data de Nascimento
+  3. Turma
+  4. Telefone para Emergências
+  5. Em caso de emergência avisar
+
+
+- [x] Um campo de texto acima da listagem que será utilizado para filtrar os alunos pelo nome.
 
 <br>
 
 ## Regras da aplicação
 
-• Na tela de cadastro o campo “Descrição das Restrições Alimentares”  somente ficará visível caso a criança possua restrições alimentares;
+- Na tela de cadastro o campo “Descrição das Restrições Alimentares”  somente ficará visível caso a criança possua restrições alimentares.
 
-• No campo Turma será apresentado para escolha uma lista de turmas disponíveis, você não precisa criar uma tela de cadastro para elas, somente uma consulta das mesmas.
+- No campo Turma será apresentado para escolha uma lista de turmas disponíveis, você não precisa criar uma tela de cadastro para elas, somente uma consulta das mesmas.
 
-• Os campos “Possui Restrição Alimentar” e Autorização para uso de fotos e vídeos da criança para uso escolar” serão do tipo Checkbox
+- Os campos “Possui Restrição Alimentar” e Autorização para uso de fotos e vídeos da criança para uso escolar” serão do tipo Checkbox.
 
-• A função editar colocará os dados do aluno no formulário de cadastro
+- A função editar colocará os dados do aluno no formulário de cadastro.
 
 <br>
 
