@@ -39,6 +39,7 @@ function Cadastro({ setAlunos }) {
 
   const limparCampos = () => {
     setInput({});
+    setAutorizados([{ autorizadoNome: "", autorizadoVinculo: "" }]);
     setRestricao(false);
     setDescreveRestricao("");
     setAutorizacao(true);
