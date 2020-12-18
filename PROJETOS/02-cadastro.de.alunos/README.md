@@ -9,7 +9,7 @@
 ### Mobile
 
 <div align="center">
-  <img  width='250' src='https://user-images.githubusercontent.com/45580434/102667440-28180880-4168-11eb-94bf-7113734cb41c.gif' alt="versão mobile">
+  <img  width='350' src='https://user-images.githubusercontent.com/45580434/102667440-28180880-4168-11eb-94bf-7113734cb41c.gif' alt="versão mobile">
 </div>
 
 ### Web
