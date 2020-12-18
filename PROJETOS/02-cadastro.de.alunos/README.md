@@ -2,7 +2,7 @@
 
 ## Prévia
 
-:dash: [Deploy da Aplicação](https://amorinha.surge.sh/){:target="_blank"}
+:dash: [Deploy da Aplicação](http://amorinha.surge.sh/){:target="_blank"}
 
 <br>
 
