@@ -6,6 +6,7 @@ import {
   fieldsContent,
   authorizedFieldsContent,
 } from "../../Cadastro/constants";
+import { telefoneMask, removeMask } from "../../../../utils/constants";
 
 import * as S from "./styles";
 import { DialogContent, Typography, Button } from "@material-ui/core";
@@ -33,14 +34,6 @@ function Editar({ editOpen, setEditOpen, alunoClicado, setAlunos }) {
   const [autorizados, setAutorizados] = useState([
     { autorizadoNome: "", autorizadoVinculo: "" },
   ]);
-
-  const telefoneMask = (telefoneNumber) => {
-    return telefoneNumber
-      .replace(/\D/g, "")
-      .replace(/^(\d\d)(\d)/g, "($1) $2")
-      .replace(/(\d{5})(\d)/, "$1-$2")
-      .replace(/(-\d{4})\d+?$/, "$1");
-  };
 
   useEffect(() => {
     AlunoService.buscaAluno(alunoClicado.id).then((response) => {
@@ -101,8 +94,6 @@ function Editar({ editOpen, setEditOpen, alunoClicado, setAlunos }) {
       emergenciaTelefone,
     } = input;
 
-    const removeMask = (value) => Number(value?.replace(/\D/g, ""));
-
     const autorizadosFormatado = autorizados
       .map((item) => `${item.autorizadoNome} - ${item.autorizadoVinculo}`)
       .filter((i) => i !== " - ");
@@ -130,7 +121,9 @@ function Editar({ editOpen, setEditOpen, alunoClicado, setAlunos }) {
       observacoes: observacoesFormatadas,
     };
     AlunoService.editaAluno(alunoClicado.id, data)
-      .then(() => AlunoService.buscaAlunos().then((response) => setAlunos(response)))
+      .then(() =>
+        AlunoService.buscaAlunos().then((response) => setAlunos(response))
+      )
       .then(() => setEditOpen(false));
   };
 
@@ -176,15 +169,10 @@ function Editar({ editOpen, setEditOpen, alunoClicado, setAlunos }) {
 
           <div id="buttons-wrapper">
             <Button
-        
-                   name="salvar"
-   
-                        type="submit"
-      
-                     color="primary"
-         
-                  variant="contained"
-            
+              name="salvar"
+              type="submit"
+              color="primary"
+              variant="contained"
             >
               Salvar
             </Button>

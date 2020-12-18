@@ -44,6 +44,9 @@ export const columns = [
   {
     title: "Nascimento",
     field: "aluno.nascimento",
+    render: (row) => (
+      <span>{row.aluno.nascimento.split("-").reverse().join("/")}</span>
+    ),
   },
   {
     title: "Turma",

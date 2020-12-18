@@ -4,6 +4,7 @@ import { EditorState } from "draft-js";
 import books from "../../../assets/books.svg";
 
 import { fieldsContent, authorizedFieldsContent } from "./constants";
+import { removeMask, telefoneMask } from "../../../utils/constants";
 
 import AlunoService from "../../../service";
 
@@ -49,14 +50,6 @@ function Cadastro({ setAlunos }) {
     setNovo(true);
   };
 
-  const telefoneMask = (telefoneNumber) => {
-    return telefoneNumber
-      .replace(/\D/g, "")
-      .replace(/^(\d\d)(\d)/g, "($1) $2")
-      .replace(/(\d{5})(\d)/, "$1-$2")
-      .replace(/(-\d{4})\d+?$/, "$1");
-  };
-
   const changeInput = (e) => {
     const { name, value } = e.target;
     if (name === "telefone") {
@@ -79,8 +72,6 @@ function Cadastro({ setAlunos }) {
       emergenciaContato,
       emergenciaTelefone,
     } = input;
-
-    const removeMask = (value) => Number(value?.replace(/\D/g, ""));
 
     const autorizadosFormatado = autorizados
       .map((item) => `${item.autorizadoNome} - ${item.autorizadoVinculo}`)
@@ -109,7 +100,9 @@ function Cadastro({ setAlunos }) {
       observacoes: observacoesFormatadas,
     };
     AlunoService.adicionaAluno(data)
-      .then(() => AlunoService.buscaAlunos().then((response) => setAlunos(response)))
+      .then(() =>
+        AlunoService.buscaAlunos().then((response) => setAlunos(response))
+      )
       .then(() => {
         limparCampos();
         setNovo(false);
@@ -158,15 +151,10 @@ function Cadastro({ setAlunos }) {
 
               <div id="buttons-wrapper">
                 <Button
-           
-                        type="submit"
-    
-                               color="primary"
-        
-                           variant="contained"
-            
-                       name="salvar"
-                
+                  type="submit"
+                  color="primary"
+                  variant="contained"
+                  name="salvar"
                 >
                   Salvar
                 </Button>

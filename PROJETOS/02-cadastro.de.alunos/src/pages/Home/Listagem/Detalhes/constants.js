@@ -1,3 +1,5 @@
+import { telefoneMask } from "../../../../utils/constants";
+
 export const camposContent = (item) => {
   const {
     responsavel,
@@ -5,19 +7,21 @@ export const camposContent = (item) => {
     autorizadosBuscar,
     autorizacaoFotoVideo,
   } = item;
+  const responsavelTefone = telefoneMask(responsavel.telefone.toString());
+  const emergenciaTefone = telefoneMask(emergencia.telefone.toString());
   return [
     {
       title: "Dados do Responsável pela criança",
       itens: [
         { subtitle: "Nome", content: responsavel.nome },
-        { subtitle: "Telefone", content: responsavel.telefone },
+        { subtitle: "Telefone", content: responsavelTefone },
       ],
     },
     {
       title: "Contato de emergência",
       itens: [
         { subtitle: "Avisar", content: emergencia.avisar },
-        { subtitle: "Telefone", content: emergencia.telefone },
+        { subtitle: "Telefone", content: emergenciaTefone },
       ],
     },
     {

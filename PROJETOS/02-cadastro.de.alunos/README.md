@@ -15,7 +15,7 @@
 ### Web
 
 <div align="center">
-  <img  width='600' src='' alt="versão web">
+  <img  width='600' src='https://user-images.githubusercontent.com/45580434/102663628-fdc24d00-415f-11eb-93cd-c34084aec1e2.gif' alt="versão web">
 </div>
 
 <br>
