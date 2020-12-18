@@ -3,7 +3,7 @@ import MaterialTable from "material-table";
 
 import { tableTranslation, columns } from "./constants";
 
-import { deletaAluno, buscaAlunos } from "../../../service";
+import AlunoService from "../../../service";
 
 import amigos from "../../../assets/amigos.svg";
 import { Typography } from "@material-ui/core";
@@ -19,9 +19,9 @@ function Listagem({ alunos, setAlunos }) {
   const [alunoClicado, setAlunoClicado] = useState(undefined);
 
   const deletaAlunoClicado = () => {
-    deletaAluno(alunoClicado.id)
+    AlunoService.deletaAluno(alunoClicado.id)
       .then(() =>
-        buscaAlunos().then((response) => {
+        AlunoService.buscaAlunos().then((response) => {
           setAlunos(response);
         })
       )

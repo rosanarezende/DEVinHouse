@@ -2,7 +2,7 @@ export const alunosMock = [
   {
     aluno: {
       nascimento: "2014-11-07",
-      nome: "Alice Weber Pesca",
+      nome: "Fulaninho de Tal",
       restricoesAlimentares: {
         detalhes: "Alergia a leite e corantes",
         possui: true,
@@ -10,21 +10,21 @@ export const alunosMock = [
       turma: "Turma 1",
     },
     responsavel: {
-      nome: "Rosana Carolino Rezende",
-      telefone: 27999672118,
+      nome: "Fulana de Tal",
+      telefone: 11999998888,
     },
     emergencia: {
       avisar: "PADRINHOS",
-      telefone: 27995312828,
+      telefone: 11999997777,
     },
-    autorizadosBuscar: ["Cleiton - PADRINHO", "Joselma - MÃE"],
+    autorizadosBuscar: ["Fulano - PAI", "Beltrano - PADRINHO"],
     autorizacaoFotoVideo: true,
     observacoes: "<p></p>\n",
     id: "aSEtAQm",
   },
   {
     aluno: {
-      nome: "Aluno 3",
+      nome: "Beltraninha de Tal",
       nascimento: "2020-12-02",
       turma: "Turma 3",
       restricoesAlimentares: {
@@ -33,12 +33,12 @@ export const alunosMock = [
       },
     },
     responsavel: {
-      nome: "Responsável 2",
-      telefone: 22222222222,
+      nome: "Beltrana de Tal",
+      telefone: 11999998888,
     },
     emergencia: {
       avisar: "TIOS",
-      telefone: 44444444444,
+      telefone: 11999997777,
     },
     autorizadosBuscar: ["Fulano - AVÔ"],
     autorizacaoFotoVideo: false,

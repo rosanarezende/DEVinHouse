@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Typography } from "@material-ui/core";
 import * as S from "./styles";
 
-import { buscaAlunos } from "../../service";
+import AlunoService from "../../service";
 
 import background from "../../assets/desenho.jpg";
 import bottom from "../../assets/curve3.svg";
@@ -15,7 +15,7 @@ function Home() {
   const [alunos, setAlunos] = useState([]);
 
   useEffect(() => {
-    buscaAlunos().then((response) => setAlunos(response));
+    AlunoService.buscaAlunos().then((response) => setAlunos(response));
   }, []);
 
   return (

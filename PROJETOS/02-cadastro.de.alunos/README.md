@@ -2,7 +2,7 @@
 
 ## Prévia
 
-:dash: [Deploy da Aplicação]()
+:dash: [Deploy da Aplicação](https://amorinha.surge.sh/)
 
 <br>
 
@@ -41,7 +41,8 @@ A escola Amorinha precisa de um sistema para controlar a Consulta e o Cadastro d
 
 Os requisitos para a aplicação são os seguintes:
 
-. Um formulário para o cadastro dos Alunos contendo os seguintes campos:
+- [] Um formulário para o cadastro dos Alunos contendo os seguintes campos:
+
     1. Nome
     2. Data de Nascimento
     3. Nome do Responsável pela criança
@@ -55,14 +56,17 @@ Os requisitos para a aplicação são os seguintes:
     11. Turma
     12. Observações adicionais
 
-2. Uma listagem de Alunos que permita editar e excluir alunos e apresente para o usuário os principais campos:
+
+
+- [] Uma listagem de Alunos que permita editar e excluir alunos e apresente para o usuário os principais campos:
     1. Nome
     2. Data de Nascimento
     3. Turma
     4. Telefone para Emergências
     5. Em caso de emergência avisar
 
-3. Um campo de texto acima da listagem que será utilizado para filtrar os alunos pelo nome.
+
+- [] Um campo de texto acima da listagem que será utilizado para filtrar os alunos pelo nome.
 
 <br>
 
@@ -75,12 +79,6 @@ Os requisitos para a aplicação são os seguintes:
 • Os campos “Possui Restrição Alimentar” e Autorização para uso de fotos e vídeos da criança para uso escolar” serão do tipo Checkbox
 
 • A função editar colocará os dados do aluno no formulário de cadastro
-
-<br>
-
-## Créditos
-
-<!-- O layout foi inspirado no design de ToDo List de [Kövesházi Dániel](https://dribbble.com/shots/2458929-DailyUI-042-ToDo-List) -->
 
 <br>
 

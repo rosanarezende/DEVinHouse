@@ -34,7 +34,7 @@ export const FooterWrapper = styled.footer`
   }
 
   #copyright {
-    opacity: 0.6;
+    opacity: 0.8;
     @media screen and (max-width: 900px) {
       font-size: 0.6rem;
     }

@@ -19,10 +19,10 @@ function Confirm({ open, setOpen, title = "", text, functionConfirm }) {
         <DialogContentText>{text}</DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} color="primary">
+        <Button onClick={handleClose} color="primary" name="nao">
           Não
         </Button>
-        <Button onClick={functionConfirm} color="primary">
+        <Button onClick={functionConfirm} color="primary" name="sim">
           Sim
         </Button>
       </DialogActions>

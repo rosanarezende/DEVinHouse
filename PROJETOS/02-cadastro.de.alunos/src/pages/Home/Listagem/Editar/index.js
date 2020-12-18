@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { EditorState } from "draft-js";
 
-import { buscaAluno, buscaAlunos, editaAluno } from "../../../../service";
+import AlunoService from "../../../../service";
 import {
   fieldsContent,
   authorizedFieldsContent,
@@ -43,7 +43,7 @@ function Editar({ editOpen, setEditOpen, alunoClicado, setAlunos }) {
   };
 
   useEffect(() => {
-    buscaAluno(alunoClicado.id).then((response) => {
+    AlunoService.buscaAluno(alunoClicado.id).then((response) => {
       const {
         aluno,
         responsavel,
@@ -129,8 +129,8 @@ function Editar({ editOpen, setEditOpen, alunoClicado, setAlunos }) {
       autorizacaoFotoVideo: autorizacao,
       observacoes: observacoesFormatadas,
     };
-    editaAluno(alunoClicado.id, data)
-      .then(() => buscaAlunos().then((response) => setAlunos(response)))
+    AlunoService.editaAluno(alunoClicado.id, data)
+      .then(() => AlunoService.buscaAlunos().then((response) => setAlunos(response)))
       .then(() => setEditOpen(false));
   };
 
@@ -175,7 +175,17 @@ function Editar({ editOpen, setEditOpen, alunoClicado, setAlunos }) {
           />
 
           <div id="buttons-wrapper">
-            <Button type="submit" color="primary" variant="contained">
+            <Button
+        
+                   name="salvar"
+   
+                        type="submit"
+      
+                     color="primary"
+         
+                  variant="contained"
+            
+            >
               Salvar
             </Button>
 
@@ -184,6 +194,7 @@ function Editar({ editOpen, setEditOpen, alunoClicado, setAlunos }) {
               color="secondary"
               variant="outlined"
               onClick={handleClose}
+              name="cancelar"
             >
               Cancelar
             </Button>

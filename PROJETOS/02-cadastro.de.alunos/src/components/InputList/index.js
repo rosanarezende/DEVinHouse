@@ -72,6 +72,7 @@ function InputList({ data, setData, internData }) {
             color="primary"
             variant="outlined"
             onClick={adicionaCampoAutorizado}
+            name="incluir-autorizado"
           >
             + autorizado
           </Button>

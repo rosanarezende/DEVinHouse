@@ -4,12 +4,18 @@ import { Typography, Button } from "@material-ui/core";
 function Novo({ add }) {
   return (
     <S.NovoWrapper>
-      <Typography variant="h6" align="center" gutterBottom>
+      <Typography variant="h6" component="h4" align="center" gutterBottom>
         Clique no botão para cadastrar um novo aluno
       </Typography>
       <br />
       <div id="buttons-wrapper">
-        <Button type="button" color="primary" variant="outlined" onClick={add}>
+        <Button
+          name="novo"
+          type="button"
+          color="primary"
+          variant="contained"
+          onClick={add}
+        >
           NOVO
         </Button>
       </div>

@@ -5,7 +5,7 @@ import books from "../../../assets/books.svg";
 
 import { fieldsContent, authorizedFieldsContent } from "./constants";
 
-import { adicionaAluno, buscaAlunos } from "../../../service";
+import AlunoService from "../../../service";
 
 import { Typography, Button } from "@material-ui/core";
 import * as S from "./styles";
@@ -108,11 +108,12 @@ function Cadastro({ setAlunos }) {
       autorizacaoFotoVideo: autorizacao,
       observacoes: observacoesFormatadas,
     };
-    adicionaAluno(data).then(() =>
-      buscaAlunos().then((response) => setAlunos(response))
-    );
-    limparCampos();
-    setNovo(false);
+    AlunoService.adicionaAluno(data)
+      .then(() => AlunoService.buscaAlunos().then((response) => setAlunos(response)))
+      .then(() => {
+        limparCampos();
+        setNovo(false);
+      });
   };
 
   return (
@@ -156,7 +157,17 @@ function Cadastro({ setAlunos }) {
               />
 
               <div id="buttons-wrapper">
-                <Button type="submit" color="primary" variant="contained">
+                <Button
+           
+                        type="submit"
+    
+                               color="primary"
+        
+                           variant="contained"
+            
+                       name="salvar"
+                
+                >
                   Salvar
                 </Button>
 
@@ -165,6 +176,7 @@ function Cadastro({ setAlunos }) {
                   color="secondary"
                   variant="outlined"
                   onClick={() => setNovo(false)}
+                  name="cancelar"
                 >
                   Cancelar
                 </Button>

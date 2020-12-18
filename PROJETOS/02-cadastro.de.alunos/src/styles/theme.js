@@ -35,7 +35,7 @@ export default createMuiTheme({
     h1: { fontSize: "min(96px, 12vw)", color: "rgba(0, 0, 0, 0.7)" },
     h2: {
       fontSize: "min(60px, 10vw)",
-      color: "#3b9c60",
+      color: "rgba(87, 30, 94)",
       fontWeight: "bolder",
     },
     h3: { fontSize: "min(48px, 8vw)", color: "#591521", fontWeight: "revert" }, //fontWeight: "bold"
