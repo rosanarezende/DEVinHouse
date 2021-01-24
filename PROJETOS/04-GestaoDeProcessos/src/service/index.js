@@ -18,7 +18,7 @@ export function makeServer({ environment = "development" } = {}) {
 
     routes() {
       this.namespace = "api";
-      // this.timing = 750;
+      this.timing = 1000;
 
       this.get("/processo", ({ db }) => {
         return db.processos;
@@ -67,7 +67,7 @@ class ProcessoService {
   async buscaProcesso(id) {
     try {
       const response = await axios.get(`/api/processo/${id}`);
-      return response.data.processo;
+      return response.data?.processo;
     } catch (error) {
       console.error(error);
       return [];

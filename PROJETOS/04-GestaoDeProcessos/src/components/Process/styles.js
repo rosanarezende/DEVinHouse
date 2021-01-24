@@ -1,10 +1,11 @@
-import styled from "styled-components"
-import { Paper } from "@material-ui/core"
+import styled from "styled-components";
+import { Paper } from "@material-ui/core";
 
 export const ProcessWrapper = styled(Paper)`
-  margin:  0 170px 20px;
+  margin-bottom: 20px;
   padding: 12px;
   display: flex;
+  flex-wrap: wrap;
 
   img {
     align-self: center;
@@ -14,19 +15,30 @@ export const ProcessWrapper = styled(Paper)`
   }
 
   > div {
-    width: 22.5%;
-    margin-top: 30px;
+    width: ${(props) => (props.appears ? "42%" : "19%")};
+    margin-top: ${(props) => (props.appears ? "10px" : "30px")};
     margin-right: 16px;
 
     .MuiTypography-h3 {
-      margin-bottom: 14px;
+      margin-bottom: ${(props) => (!props.appears && "14px")};
     }
+  }
 
-    .MuiTypography-body1{
+  .interested {
+    width: ${(props) => (props.appears ? "90%" : "20%")};
+  }
+
+  .subject,
+  .description {
+    .MuiTypography-body1 {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 20vw;
+      max-width: ${(props) => (props.appears ? "15vw" : "18vw")};
     }
   }
-`
+
+  img, .description {
+    display: ${(props) => props.appears && "none"};
+  }
+`;

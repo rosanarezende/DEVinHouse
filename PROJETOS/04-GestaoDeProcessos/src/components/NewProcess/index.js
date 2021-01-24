@@ -9,11 +9,11 @@ import {
 } from "@material-ui/core";
 import { CloseIcon, DialogContentStyled } from "./styles";
 
-function NewProcess({ open, setOpen }) {
+function NewProcess({ open, setOpen, processToEdit }) {
   
-  const createProcess = () => {
+  const saveProcess = () => {
     setOpen(false);
-    // colocar a lógica de criação de processo
+    // colocar a lógica de criação ou edição de processo
   };
 
   return (
@@ -28,34 +28,42 @@ function NewProcess({ open, setOpen }) {
           <Close />
         </CloseIcon>
       </div>
-      <DialogTitle style={{ padding: "16px 20px 0"}}>Cadastro de processo</DialogTitle>
+      <DialogTitle style={{ padding: "16px 20px 0" }}>
+        Cadastro de processo
+      </DialogTitle>
 
       <DialogContentStyled>
         <Typography variant="body2">Assunto</Typography>
         <div>
-          <TextField color="secondary" />
+          <TextField color="secondary" value={processToEdit?.assunto || ""} />
         </div>
 
         <Typography variant="body2">Interessados</Typography>
-        <div>xxx</div>
+        <div>
+          {processToEdit?.interessados?.map((item, index) => (
+            <Typography key={index}>{item}</Typography>
+          ))}
+        </div>
+        {/* <div>xxx</div> */}
 
         <Typography variant="body2">Novo Interessado</Typography>
         <div>
           <TextField color="secondary" />
+          {/* vou ter q fazer uma lógica pra adicionar, quando for novo... 
+          pq ainda não tô batendo na API e uma pra editar, batendo direto na API */}
           <Button variant="contained" color="secondary">
             Adicionar
           </Button>
         </div>
 
         <Typography variant="body2">Descrição</Typography>
-        <TextField color="secondary" multiline/>
+        <TextField color="secondary" multiline value={processToEdit?.descricao || ""}/>
 
         <DialogActions>
-          <Button onClick={createProcess} variant="contained" color="primary">
+          <Button onClick={saveProcess} variant="contained" color="primary">
             Salvar
           </Button>
         </DialogActions>
-
       </DialogContentStyled>
     </Dialog>
   );

@@ -1,53 +1,44 @@
-import { Typography } from "@material-ui/core"
-import * as S from "./styles"
+import { Typography } from "@material-ui/core";
+import * as S from "./styles";
 
-import processImg from "../../assets/process-fake.png"
+import processImg from "../../assets/process-fake.png";
 
-function Process({ process }) {
-  const { numero, descricao, assunto, interessados } = process
+function Process({ process, setDetail, detail }) {
+  const { numero, descricao, assunto, interessados } = process;
 
   return (
-    <S.ProcessWrapper>
+    <S.ProcessWrapper
+      onClick={() =>
+        setDetail({
+          appears: true,
+          processClicked: process,
+        })
+      }
+      appears={detail.appears}
+    >
       <img alt="processo" src={processImg} />
 
       <div>
-        <Typography variant="h3">
-          Número
-        </Typography>
-        <Typography>
-          {numero}
-        </Typography>
+        <Typography variant="h3">Número</Typography>
+        <Typography>{numero}</Typography>
       </div>
 
-      <div>
-        <Typography variant="h3">
-          Assunto
-        </Typography>
-        <Typography>
-          {assunto}
-        </Typography>
+      <div className="subject">
+        <Typography variant="h3">Assunto</Typography>
+        <Typography>{assunto}</Typography>
       </div>
 
-      <div>
-        <Typography variant="h3">
-          Interessado
-        </Typography>
-        <Typography>
-          {interessados[0]}
-        </Typography>
+      <div className="interested">
+        <Typography variant="h3">Interessado</Typography>
+        <Typography>{interessados[0]}</Typography>
       </div>
 
-      <div>
-        <Typography variant="h3">
-          Descrição
-        </Typography>
-        <Typography>
-          {descricao}
-        </Typography>
+      <div className="description">
+        <Typography variant="h3">Descrição</Typography>
+        <Typography>{descricao}</Typography>
       </div>
-
     </S.ProcessWrapper>
-  )
+  );
 }
 
-export default Process
+export default Process;

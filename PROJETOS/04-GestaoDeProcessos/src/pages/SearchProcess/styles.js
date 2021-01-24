@@ -15,3 +15,27 @@ export const Top = styled.div`
     color: #757575;
   }
 `
+
+export const LoadingWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  width: 50vw;
+`
+
+export const ContentWrapper = styled.div`
+  margin:  ${props => props.appears ? "0 50px 0  170px" : "0 170px"};
+  display: flex;
+
+  .process{
+    display: flex;
+    flex-direction: column;
+    width: ${props => props.appears ? "75%" : "100%"};
+  }
+
+  .detail {
+    width: calc(100% - 30px);
+    margin-left: 30px;
+  }
+`
