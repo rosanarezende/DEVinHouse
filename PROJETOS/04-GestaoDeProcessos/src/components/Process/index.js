@@ -14,7 +14,7 @@ function Process({ process, setDetail, detail }) {
           processClicked: process,
         })
       }
-      appears={detail.appears.toString()}
+      appears={detail.appears?.toString()}
     >
       <img alt="processo" src={processImg} />
 

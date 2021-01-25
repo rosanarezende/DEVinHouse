@@ -17,7 +17,7 @@ import { today } from "./constants";
 import AddInterested from "../AddInterested";
 import MessageAlert from "../MessageAlert";
 
-function NewProcess({ open, setOpen, processToEdit }) {
+function NewProcess({ open, setOpen, processToEdit, setProcessos, setDetail }) {
   const [inputs, setInputs] = useState({
     assunto: processToEdit ? processToEdit.assunto : "",
     interessados: processToEdit ? processToEdit.interessados : [],
@@ -65,22 +65,13 @@ function NewProcess({ open, setOpen, processToEdit }) {
         assunto,
         interessados,
       });
-      ProcessoService.editaProcesso(processToEdit.id, itemToEdit)
-      // .then(
-      //   (response) => {
-      //     console.log(response);
-      //     setInputs({
-      //       assunto: response.assunto,
-      //       interessados: response.interessados,
-      //       descricao: response.descricao,
-      //     });
-      //   }
-      // )
-      ProcessoService.buscaProcesso(processToEdit.id).then(response => setInputs({
-        assunto: response.assunto,
-        interessados: response.interessados,
-        descricao: response.descricao,
-      }))
+      ProcessoService.editaProcesso(processToEdit.id, itemToEdit).then(() =>
+        ProcessoService.buscaProcessos().then((response) =>
+          setProcessos(response)
+        )
+      );
+      setDetail(false)
+      
     } else {
       const item = {
         entrada: today,
@@ -89,8 +80,12 @@ function NewProcess({ open, setOpen, processToEdit }) {
         assunto,
         interessados,
       };
-      ProcessoService.adicionaProcesso(item);
-      setAlert(true)
+      ProcessoService.adicionaProcesso(item).then(() =>
+        ProcessoService.buscaProcessos().then((response) =>
+          setProcessos(response)
+        )
+      );
+      setAlert(true);
     }
 
     setOpen(false);
@@ -98,59 +93,61 @@ function NewProcess({ open, setOpen, processToEdit }) {
 
   return (
     <>
-    <Dialog
-      onClose={() => setOpen(false)}
-      aria-labelledby="customized-dialog-title"
-      open={open}
-      fullWidth
-    >
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
-        <CloseIcon aria-label="close" onClick={() => setOpen(false)}>
-          <Close />
-        </CloseIcon>
-      </div>
-      <DialogTitle style={{ padding: "16px 20px 0" }}>
-        Cadastro de processo
-      </DialogTitle>
+      <Dialog
+        onClose={() => setOpen(false)}
+        aria-labelledby="customized-dialog-title"
+        open={open}
+        fullWidth
+      >
+        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <CloseIcon aria-label="close" onClick={() => setOpen(false)}>
+            <Close />
+          </CloseIcon>
+        </div>
+        <DialogTitle style={{ padding: "16px 20px 0" }}>
+          Cadastro de processo
+        </DialogTitle>
 
-      <DialogContentStyled>
-        <Typography variant="body2">Assunto</Typography>
-        <div>
+        <DialogContentStyled>
+          <Typography variant="body2">Assunto</Typography>
+          <div>
+            <TextField
+              color="secondary"
+              value={inputs.assunto}
+              name="assunto"
+              onChange={handleChangeInput}
+            />
+          </div>
+
+          <AddInterested
+            inputs={inputs}
+            setInputs={setInputs}
+            tempInterested={tempInterested}
+            setTempInterested={setTempInterested}
+          />
+
+          <Typography variant="body2">Descrição</Typography>
           <TextField
             color="secondary"
-            value={inputs.assunto}
-            name="assunto"
+            multiline
+            value={inputs.descricao}
+            name="descricao"
             onChange={handleChangeInput}
           />
-        </div>
 
-        <AddInterested
-          inputs={inputs}
-          setInputs={setInputs}
-          tempInterested={tempInterested}
-          setTempInterested={setTempInterested}
-        />
+          <DialogActions>
+            <Button onClick={saveProcess} variant="contained" color="primary">
+              Salvar
+            </Button>
+          </DialogActions>
+        </DialogContentStyled>
+      </Dialog>
 
-        <Typography variant="body2">Descrição</Typography>
-        <TextField
-          color="secondary"
-          multiline
-          value={inputs.descricao}
-          name="descricao"
-          onChange={handleChangeInput}
-        />
-
-        <DialogActions>
-          <Button onClick={saveProcess} variant="contained" color="primary">
-            Salvar
-          </Button>
-        </DialogActions>
-      </DialogContentStyled>
-    </Dialog>
-
-    <MessageAlert alert={alert}
+      <MessageAlert
+        alert={alert}
         setAlert={setAlert}
-        message="Processo cadastrado com sucesso!"/>
+        message="Processo cadastrado com sucesso!"
+      />
     </>
   );
 }

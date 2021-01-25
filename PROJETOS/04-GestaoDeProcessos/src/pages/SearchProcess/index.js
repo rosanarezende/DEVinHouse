@@ -120,6 +120,8 @@ function SearchProcess() {
         open={open}
         setOpen={setOpen}
         processToEdit={detail.processClicked}
+        setProcessos={setProcessos}
+        setDetail={setDetail}
       />
     </>
   );
