@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const HomeWrapper = styled.div`
   display: flex;
@@ -8,11 +8,15 @@ export const HomeWrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 20vw;
-`
+
+  @media screen and (max-width: 900px) {
+    padding: 0 5vw;
+  }
+`;
 
 export const LinkStyled = styled.span`
-  color: #005B95;
+  color: #005b95;
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer;
-`
+`;

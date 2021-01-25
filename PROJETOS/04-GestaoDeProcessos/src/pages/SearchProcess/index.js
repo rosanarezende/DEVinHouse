@@ -53,6 +53,12 @@ function SearchProcess() {
       })
     : [];
 
+  detail.appears &&
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+
   return (
     <>
       <Box m={4}>
@@ -61,11 +67,7 @@ function SearchProcess() {
             Busca de processos
           </Typography>
 
-          <InputSearch
-            // inputClick={dispatch(setInputSearch(undefined))}
-            // inconClick={() => history.push("/process/search")}
-            marginInput="0 20px"
-          />
+          <InputSearch marginInput="0 20px" />
 
           <Button
             variant="outlined"
@@ -105,8 +107,8 @@ function SearchProcess() {
                 <ProcessDetail
                   id={detail.processClicked.id}
                   setDetail={setDetail}
-                  detail={detail}
                   setOpen={setOpen}
+                  setProcessos={setProcessos}
                 />
               </div>
             )}

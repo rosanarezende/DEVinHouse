@@ -10,13 +10,13 @@ import theme from "./utils/theme";
 import store from "./redux/store";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <>
     <Provider store={store}>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
         <Routes />
       </MuiThemeProvider>
     </Provider>
-  </React.StrictMode>,
+  </>,
   document.getElementById("root")
 );

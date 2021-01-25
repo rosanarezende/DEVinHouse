@@ -15,17 +15,24 @@ export const ProcessWrapper = styled(Paper)`
   }
 
   > div {
-    width: ${(props) => (props.appears ? "42%" : "19%")};
-    margin-top: ${(props) => (props.appears ? "10px" : "30px")};
+    width: ${(props) => (props.appears === "true" ? "42%" : "19%")};
+    margin-top: ${(props) => (props.appears === "true" ? "10px" : "30px")};
     margin-right: 16px;
 
+    @media screen and (max-width: 900px) {
+      width: 100%
+    }
+
     .MuiTypography-h3 {
-      margin-bottom: ${(props) => (!props.appears && "14px")};
+      margin-bottom: ${(props) => (props.appears === "false" && "14px")};
+      @media screen and (max-width: 900px) {
+        margin-bottom: 5px;
+      }
     }
   }
 
   .interested {
-    width: ${(props) => (props.appears ? "90%" : "20%")};
+    width: ${(props) => (props.appears === "true" ? "90%" : "20%")};
   }
 
   .subject,
@@ -34,11 +41,15 @@ export const ProcessWrapper = styled(Paper)`
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: ${(props) => (props.appears ? "15vw" : "18vw")};
+      max-width: ${(props) => (props.appears === "true" ? "15vw" : "18vw")};
+
+      @media screen and (max-width: 900px) {
+        max-width: 100%;
+      }
     }
   }
 
   img, .description {
-    display: ${(props) => props.appears && "none"};
+    display: ${(props) => props.appears === "true" && "none"};
   }
 `;

@@ -8,6 +8,12 @@ export const PaperStyled = styled(Paper)`
   display: flex;
   align-items: center;
 
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
   .iconButton {
     padding: 10px;
   }
