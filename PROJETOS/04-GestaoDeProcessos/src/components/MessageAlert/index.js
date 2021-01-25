@@ -9,7 +9,7 @@ function MessageAlert({ alert, setAlert, message, severity}) {
   return (
     <Snackbar
       open={alert}
-      autoHideDuration={6000}
+      autoHideDuration={4000}
       onClose={() => setAlert(false)}
     >
       <Alert onClose={() => setAlert(false)} severity={severity ? severity : "success"}>

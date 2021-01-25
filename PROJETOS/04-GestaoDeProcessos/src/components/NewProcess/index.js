@@ -90,6 +90,7 @@ function NewProcess({ open, setOpen, processToEdit }) {
         interessados,
       };
       ProcessoService.adicionaProcesso(item);
+      setAlert(true)
     }
 
     setOpen(false);
