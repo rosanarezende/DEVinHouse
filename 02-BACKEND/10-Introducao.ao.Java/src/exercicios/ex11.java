@@ -27,6 +27,8 @@ public class ex11 {
             anos--;
         }
 
-        System.out.println(anos);
+        String resultado = anos >= 18 ? "maior" : "menor";
+
+        System.out.printf("Você é %s de idade", resultado);
     }
 }
