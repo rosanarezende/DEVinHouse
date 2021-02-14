@@ -8,7 +8,7 @@ public class ex9 {
 
         System.out.print("Digite seu nome: ");
         String nome = teclado.nextLine();
-        int tamanho = nome.length();
+        int tamanho = nome.replaceAll("\\s+","").length();
 
         System.out.printf("Quantidade de letras do nome: %s", tamanho);
     }
