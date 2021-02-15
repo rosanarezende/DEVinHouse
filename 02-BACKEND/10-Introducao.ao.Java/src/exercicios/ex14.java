@@ -17,21 +17,24 @@ public class ex14 {
         System.out.printf("Escolha a operação:%n1) somar %n2) subtrair %n3) multiplicar %n4) dividir%n");
         int operacao = teclado.nextInt();
 
-        System.out.printf("%nResultado: ");
-
+        double resultado;
         switch (operacao) {
             case 1:
-                System.out.println(numero1 + numero2);
+                resultado = (double) numero1 + numero2;
                 break;
             case 2:
-                System.out.println(numero1 - numero2);
+                resultado = (double) numero1 - numero2;
                 break;
             case 3:
-                System.out.println(numero1 * numero2);
+                resultado = (double) numero1 * numero2;
                 break;
             case 4:
-                System.out.println(numero1 / numero2);
+                resultado = (double) numero1 / numero2;
                 break;
+            default:
+                resultado = 0;
         }
+
+        System.out.printf("%nResultado: %.2f", resultado);
     }
 }
