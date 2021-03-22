@@ -30,4 +30,16 @@ public class ContaBancaria {
     double verificaSaldo(){
         return this.saldo;
     }
+
+//    Exercício 08
+    String recuperaDadosParaImpressao(){
+        return String.format(
+                "Nome do titular: %s. " +
+                        "\nNúmero da conta: %d. " +
+                        "\nAgência: %d. " +
+                        "\nSaldo: %f. " +
+                        "\nLimite: %f. " +
+                        "\nData de abertura: %s.",
+                this.nomeDoTitular, this.numero, this.agencia, this.saldo, this.limite, this.dataDeAbertura);
+    }
 }

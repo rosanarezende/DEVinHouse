@@ -12,5 +12,7 @@ public class TestaConta {
 
         conta.sacar(100);
         System.out.println(conta.verificaSaldo());
+
+        System.out.println(conta.recuperaDadosParaImpressao());
     }
 }
