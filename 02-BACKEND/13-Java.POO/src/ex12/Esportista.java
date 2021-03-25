@@ -10,7 +10,7 @@ public class Esportista {
     private String sobrenome;
     private String dataDeNascimento;
 
-    Esportista(String nome, String sobrenome, String dataDeNascimento){
+    public Esportista(String nome, String sobrenome, String dataDeNascimento){
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.dataDeNascimento = dataDeNascimento;
