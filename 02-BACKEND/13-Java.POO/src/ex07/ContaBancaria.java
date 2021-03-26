@@ -7,6 +7,7 @@ public class ContaBancaria {
     double saldo;
     double limite;
     String dataDeAbertura;
+    static int identificador;
 
     ContaBancaria( String nomeDoTitular, int numero, int agencia, double saldo, double limite, String dataDeAbertura){
         this.nomeDoTitular = nomeDoTitular;
@@ -15,6 +16,7 @@ public class ContaBancaria {
         this.saldo = saldo;
         this.limite = limite;
         this.dataDeAbertura = dataDeAbertura;
+        ContaBancaria.identificador++;
     }
 
     void sacar(double valor){
@@ -41,5 +43,11 @@ public class ContaBancaria {
                         "\nLimite: %f. " +
                         "\nData de abertura: %s.",
                 this.nomeDoTitular, this.numero, this.agencia, this.saldo, this.limite, this.dataDeAbertura);
+    }
+
+//    Exercício 15
+
+    public static int getIdentificador() {
+        return identificador;
     }
 }

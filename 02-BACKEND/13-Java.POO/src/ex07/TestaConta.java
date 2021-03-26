@@ -14,5 +14,9 @@ public class TestaConta {
         System.out.println(conta.verificaSaldo());
 
         System.out.println(conta.recuperaDadosParaImpressao());
+
+//        Exercício 15
+        ContaBancaria conta2 = new ContaBancaria("Cleiton", 124, 0001, 100, 50, "02/02/2021");
+        System.out.println(ContaBancaria.getIdentificador());
     }
 }
