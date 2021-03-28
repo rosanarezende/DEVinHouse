@@ -10,4 +10,9 @@ public class ContaCorrente extends Conta{
     void sacar(double valor) {
         super.sacar(valor + 0.1);
     }
+
+    @Override
+    public String getTipo() {
+        return super.getTipo() + " Corrente";
+    }
 }

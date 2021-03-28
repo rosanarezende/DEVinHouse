@@ -11,4 +11,9 @@ public class ContaPoupanca extends Conta {
     public void renderJurosDePoupanca(){
         super.depositar(super.saldo * 0.1);
     }
+
+    @Override
+    public String getTipo() {
+        return super.getTipo() + " Poupança";
+    }
 }

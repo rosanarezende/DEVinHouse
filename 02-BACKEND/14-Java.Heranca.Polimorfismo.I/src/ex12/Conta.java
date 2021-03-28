@@ -47,4 +47,8 @@ public class Conta {
     public static int getIdentificador() {
         return identificador;
     }
+
+    public String getTipo(){
+        return "Conta";
+    }
 }
