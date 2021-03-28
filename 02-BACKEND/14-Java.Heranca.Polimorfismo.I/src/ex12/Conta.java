@@ -4,12 +4,12 @@ public class Conta {
     String nomeDoTitular;
     int numero;
     int agencia;
-    double saldo;
+    public double saldo;
     double limite;
     String dataDeAbertura;
     static int identificador;
 
-    Conta( String nomeDoTitular, int numero, int agencia, double saldo, double limite, String dataDeAbertura){
+    public Conta(String nomeDoTitular, int numero, int agencia, double saldo, double limite, String dataDeAbertura){
         this.nomeDoTitular = nomeDoTitular;
         this.numero = numero;
         this.agencia = agencia;
@@ -25,7 +25,7 @@ public class Conta {
         }
     }
 
-    void depositar(double valor){
+    public void depositar(double valor){
         this.saldo += valor;
     }
 
