@@ -32,4 +32,9 @@ public class Funcionario {
     public void setSalario(double salario) {
         this.salario = salario;
     }
+
+//    Exercício 10
+    public double calcularBonificacao(){
+        return salario * 0.1;
+    }
 }
