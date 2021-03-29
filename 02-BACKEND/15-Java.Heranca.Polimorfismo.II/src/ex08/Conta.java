@@ -34,6 +34,8 @@ abstract class Conta {
     }
 
     String recuperaDadosParaImpressao(){
+//        Exercício 9
+        getTipo();
         return String.format(
                 "Nome do titular: %s. " +
                         "\nNúmero da conta: %d. " +

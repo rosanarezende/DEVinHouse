@@ -11,6 +11,8 @@ public class ContaPoupanca extends Conta {
 
     @Override
     String getTipo() {
+//        Exercício 9
+        System.out.println("Fui chamado.");
         //        return super.getTipo() + " Poupança";
         return "Conta Poupança";
     }
