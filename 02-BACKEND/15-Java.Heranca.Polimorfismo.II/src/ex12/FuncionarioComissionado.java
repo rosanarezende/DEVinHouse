@@ -4,8 +4,8 @@ public class FuncionarioComissionado extends Funcionario{
     double valorDasVendasNoMes;
     double comissao;
 
-    public FuncionarioComissionado(String nome, String sobrenome, double valorDasVendasNoMes, double comissao) {
-        super(nome, sobrenome);
+    public FuncionarioComissionado(String nome, String sobrenome, String dataDeNascimento, double valorDasVendasNoMes, double comissao) {
+        super(nome, sobrenome, dataDeNascimento);
         this.valorDasVendasNoMes = valorDasVendasNoMes;
         this.comissao = comissao;
     }

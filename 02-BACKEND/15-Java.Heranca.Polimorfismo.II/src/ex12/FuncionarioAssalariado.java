@@ -3,8 +3,8 @@ package ex12;
 public class FuncionarioAssalariado extends Funcionario {
     private double salario;
 
-    public FuncionarioAssalariado(String nome, String sobrenome, double salario) {
-        super(nome, sobrenome);
+    public FuncionarioAssalariado(String nome, String sobrenome, String dataDeNascimento, double salario) {
+        super(nome, sobrenome, dataDeNascimento);
         this.salario = salario;
     }
 
