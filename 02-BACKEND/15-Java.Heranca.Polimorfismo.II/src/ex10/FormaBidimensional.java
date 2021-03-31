@@ -1,5 +1,7 @@
 package ex10;
 
+import java.util.Objects;
+
 public abstract class FormaBidimensional extends Forma {
     private double comprimento;
     private double largura;
@@ -33,5 +35,13 @@ public abstract class FormaBidimensional extends Forma {
         return super.toString() +  " - " +
                 "comprimento=" + comprimento +
                 " - largura=" + largura;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof FormaBidimensional)) return false;
+        FormaBidimensional that = (FormaBidimensional) o;
+        return Double.compare(that.getComprimento(), getComprimento()) == 0 && Double.compare(that.getLargura(), getLargura()) == 0;
     }
 }

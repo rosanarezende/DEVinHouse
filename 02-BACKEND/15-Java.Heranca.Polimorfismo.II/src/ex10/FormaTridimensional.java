@@ -1,5 +1,7 @@
 package ex10;
 
+import java.util.Objects;
+
 abstract class FormaTridimensional extends Forma {
     private double profundidade;
     private double largura;
@@ -46,5 +48,13 @@ abstract class FormaTridimensional extends Forma {
                 "profundidade=" + profundidade +
                 " - largura=" + largura +
                 " - altura=" + altura;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof FormaTridimensional)) return false;
+        FormaTridimensional that = (FormaTridimensional) o;
+        return Double.compare(that.getProfundidade(), getProfundidade()) == 0 && Double.compare(that.getLargura(), getLargura()) == 0 && Double.compare(that.getAltura(), getAltura()) == 0;
     }
 }
