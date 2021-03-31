@@ -7,11 +7,13 @@ public class FolhaPagamento {
         FuncionarioAssalariado assalariado = new FuncionarioAssalariado("Rosana", "Rezende", "11/03/1987", 1000);
         FuncionarioComissionado comissionado = new FuncionarioComissionado("Cleiton", "Dias", "27/05/1987", 20000, 0.15);
         FuncionarioHorista horista = new FuncionarioHorista("Danilo", "Rezende", "06/08/1988", 150, 30);
+        FuncionarioPorPeca porPeca = new FuncionarioPorPeca("Cris", "Rezende", "01/03/2000", 60, 50);
 
-        Funcionario[] funcionarios = new Funcionario[3];
+        Funcionario[] funcionarios = new Funcionario[4];
         funcionarios[0] = assalariado;
         funcionarios[1] = comissionado;
         funcionarios[2] = horista;
+        funcionarios[3] = porPeca;
 
         double total = 0;
         for(Funcionario funcionario : funcionarios) {
