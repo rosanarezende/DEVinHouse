@@ -14,9 +14,4 @@ public class FuncionarioComissionado extends Funcionario{
     double calcularSalarioMensal() {
         return valorDasVendasNoMes * comissao;
     }
-
-    @Override
-    public String toString() {
-        return super.toString() + " -  salário=" + calcularSalarioMensal();
-    }
 }

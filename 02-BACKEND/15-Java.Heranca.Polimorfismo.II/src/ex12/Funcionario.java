@@ -24,7 +24,8 @@ public abstract class Funcionario {
                 "nome='" + nome + '\'' +
                 ", sobrenome='" + sobrenome + '\'' +
                 ", dataDeNascimento=" + dataDeNascimento +
-                '}';
+                '}' +
+                " -  salário=" + this.calcularSalarioMensal();
     }
 
     abstract double calcularSalarioMensal();

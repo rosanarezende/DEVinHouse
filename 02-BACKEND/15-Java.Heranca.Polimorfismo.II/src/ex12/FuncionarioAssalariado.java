@@ -16,9 +16,4 @@ public class FuncionarioAssalariado extends Funcionario {
     double calcularSalarioMensal() {
         return salario;
     }
-
-    @Override
-    public String toString() {
-        return super.toString() + " -  salário=" + calcularSalarioMensal();
-    }
 }

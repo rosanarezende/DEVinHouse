@@ -14,9 +14,4 @@ public class FuncionarioHorista extends Funcionario {
     double calcularSalarioMensal() {
         return horasTrabalhadas * valorDaHora;
     }
-
-    @Override
-    public String toString() {
-        return super.toString() + " -  salário=" + calcularSalarioMensal();
-    }
 }

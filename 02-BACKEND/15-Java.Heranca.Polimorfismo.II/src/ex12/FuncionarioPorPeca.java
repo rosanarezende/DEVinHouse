@@ -14,10 +14,4 @@ public class FuncionarioPorPeca extends Funcionario{
     double calcularSalarioMensal() {
         return qtdPecas * salarioPorPeca;
     }
-
-    @Override
-    public String toString() {
-        return super.toString() + " -  salário=" + calcularSalarioMensal();
-    }
-
 }
