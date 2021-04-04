@@ -1,6 +1,6 @@
 package ex08;
 
-abstract class Conta {
+public abstract class Conta {
     String nomeDoTitular;
     int numero;
     int agencia;
@@ -19,7 +19,7 @@ abstract class Conta {
         Conta.identificador++;
     }
 
-    void sacar(double valor){
+    protected void sacar(double valor){
         if(this.saldo + this.limite >= valor) {
             this.saldo -= valor;
         }
@@ -50,5 +50,5 @@ abstract class Conta {
         return identificador;
     }
 
-    abstract String getTipo();
+    protected abstract String getTipo();
 }
